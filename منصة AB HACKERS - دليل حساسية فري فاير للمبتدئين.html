@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AB HACKERS | منصة فري فاير الاحترافية</title>
+    <!-- خطوط Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#070b14',
+                            card: '#0d1424',
+                            border: '#1e293b',
+                            cyan: '#00f0ff',
+                            green: '#00ff88',
+                            gold: '#ffae00',
+                            fire: '#ff4655',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        /* ضبط القياس العام ليكون متوازناً على شاشات الهاتف وتطبيق Acode */
+        html {
+            font-size: 13px;
+        }
+        @media (min-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #060913;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* خلفية بصرية لعالم فري فاير */
+        .ff-world-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 15%, rgba(255, 174, 0, 0.12) 0%, transparent 42%),
+                radial-gradient(circle at 15% 25%, rgba(0, 240, 255, 0.10) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(255, 70, 85, 0.10) 0%, transparent 50%),
+                linear-gradient(180deg, #060913 0%, #0a1122 50%, #060913 100%);
+        }
+
+        .ff-btn-clip {
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .neon-border-cyan {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.45);
+        }
+
+        .neon-border-green {
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.25), inset 0 0 10px rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.45);
+        }
+
+        .neon-border-gold {
+            box-shadow: 0 0 15px rgba(255, 174, 0, 0.25), inset 0 0 10px rgba(255, 174, 0, 0.1);
+            border: 1px solid rgba(255, 174, 0, 0.45);
+        }
+
+        .circuit-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 255, 136, 0.04) 1px, transparent 1px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00f0ff, #00ff88);
+            border-radius: 4px;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5)); }
+            50% { filter: drop-shadow(0 0 22px rgba(0, 255, 136, 0.8)); }
+        }
+        .logo-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="circuit-bg min-h-screen flex flex-col">
+
+    <!-- ==================== خلفية عالم فري فاير ==================== -->
+    <div class="ff-world-bg" aria-hidden="true">
+        <svg class="w-full h-full opacity-20" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <circle cx="1120" cy="220" r="260" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="12 8"/>
+            <circle cx="1120" cy="220" r="170" stroke="#ffae00" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <circle cx="260" cy="680" r="220" stroke="#00ff88" stroke-width="1.2" stroke-dasharray="10 10"/>
+            <path d="M0 180 H1440 M0 450 H1440 M0 720 H1440 M360 0 V900 M720 0 V900 M1080 0 V900" stroke="#1e293b" stroke-width="1"/>
+            <g transform="translate(880, 95) rotate(-12)" opacity="0.7">
+                <path d="M0 20 L65 10 L110 20 L65 26 Z" fill="#ffae00"/>
+                <path d="M35 15 L25 0 L45 14 Z" fill="#00f0ff"/>
+            </g>
+            <g transform="translate(970, 175)" opacity="0.75">
+                <path d="M0 18 C8 0, 32 0, 40 18 Z" fill="#ff4655"/>
+                <line x1="5" y1="18" x2="20" y2="36" stroke="#94a3b8" stroke-width="1"/>
+                <line x1="35" y1="18" x2="20" y2="36" stroke="#94a3b8" stroke-width="1"/>
+                <circle cx="20" cy="39" r="3" fill="#ffffff"/>
+            </g>
+            <text x="50%" y="54%" text-anchor="middle" fill="#ffae00" opacity="0.06" font-family="Orbitron, sans-serif" font-weight="900" font-size="150" letter-spacing="14">FREE FIRE</text>
+            <text x="50%" y="66%" text-anchor="middle" fill="#00f0ff" opacity="0.05" font-family="Orbitron, sans-serif" font-weight="900" font-size="70" letter-spacing="18">BOOYAH!</text>
+        </svg>
+    </div>
+
+    <!-- ==================== إشعار Toast مخصص ==================== -->
+    <div id="toast-container" class="fixed bottom-5 left-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- ==================== بوابة الاشتراك الإلزامية ==================== -->
+    <div id="subscription-gate" class="fixed inset-0 z-50 bg-[#050811]/95 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
+        <div class="relative w-full max-w-lg bg-cyber-card neon-border-cyan rounded-2xl p-6 sm:p-8 text-center my-auto shadow-2xl">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-1 bg-gradient-to-r from-cyber-cyan via-cyber-green to-cyber-gold rounded-b-full"></div>
+
+            <!-- شعار المنصة AB HACKERS -->
+            <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-4 rounded-2xl overflow-hidden border-2 border-cyber-cyan/70 logo-glow bg-[#040914] flex items-center justify-center">
+                <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="abBg1" cx="50%" cy="50%" r="60%">
+                            <stop offset="0%" stop-color="#0a2538"/>
+                            <stop offset="65%" stop-color="#051320"/>
+                            <stop offset="100%" stop-color="#02060d"/>
+                        </radialGradient>
+                        <linearGradient id="abShieldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff"/>
+                            <stop offset="50%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#00ff88"/>
+                        </linearGradient>
+                        <linearGradient id="abLetterA1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#e0f2fe"/>
+                            <stop offset="50%" stop-color="#00f0ff"/>
+                            <stop offset="100%" stop-color="#0284c7"/>
+                        </linearGradient>
+                        <linearGradient id="abLetterB1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff"/>
+                            <stop offset="50%" stop-color="#00ff88"/>
+                            <stop offset="100%" stop-color="#10b981"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="240" height="240" fill="url(#abBg1)"/>
+                    <g stroke="#00f0ff" stroke-opacity="0.28" stroke-width="1.5" fill="none">
+                        <path d="M10 45 H55 L70 60 M230 45 H185 L170 60 M10 190 H50 L68 172 M230 190 H190 L172 172"/>
+                        <path d="M25 115 H48 M192 115 H215 M120 8 V26" stroke="#00ff88" stroke-opacity="0.35"/>
+                        <circle cx="55" cy="45" r="2.5" fill="#00f0ff"/><circle cx="185" cy="45" r="2.5" fill="#00ff88"/>
+                    </g>
+                    <path d="M120 22 L192 48 V116 C192 162 158 194 120 212 C82 194 48 162 48 116 V48 Z" fill="#06101e" stroke="url(#abShieldGrad1)" stroke-width="4.5"/>
+                    <path d="M120 30 L184 54 V115 C184 156 153 185 120 202 C87 185 56 156 56 115 V54 Z" fill="none" stroke="#00ff88" stroke-opacity="0.4" stroke-width="1.5"/>
+                    <path d="M72 135 C74 108 92 98 120 98 C148 98 166 108 168 135 Z" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+                    <path d="M92 98 C92 64 106 46 120 46 C134 46 148 64 148 98 C142 106 98 106 92 98 Z" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+                    <path d="M103 78 C103 62 111 54 120 54 C129 54 137 62 137 78 C137 92 129 99 120 99 C111 99 103 92 103 78 Z" fill="#030712"/>
+                    <path d="M105 81 Q120 86 135 81 L132 95 Q120 101 108 95 Z" fill="#1e293b"/>
+                    <g font-family="Orbitron, sans-serif" font-weight="900" font-style="italic" font-size="64">
+                        <text x="58" y="156" fill="url(#abLetterA1)" stroke="#ffffff" stroke-width="1.2">A</text>
+                        <text x="118" y="156" fill="url(#abLetterB1)" stroke="#ffffff" stroke-width="1.2">B</text>
+                    </g>
+                    <text x="120" y="229" text-anchor="middle" fill="#e0f2fe" font-family="Orbitron, sans-serif" font-weight="900" font-size="17" letter-spacing="2">AB HACKERS</text>
+                </svg>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-bold mb-2">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>بوابة التحقق الأمني للمنصة</span>
+            </div>
+
+            <h1 class="font-orbitron text-2xl sm:text-3xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-green bg-clip-text text-transparent mb-2">
+                AB HACKERS
+            </h1>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                مرحباً بك في أقوى منصة عربية متخصصة في احتراف <span class="text-cyber-gold font-bold">فري فاير (Free Fire)</span>. 
+                لفتح الدخول إلى الإعدادات السرية، دمج الشخصيات، ودليل الأسلحة، يرجى الاشتراك في القناتين الرسميتين أولاً:
+            </p>
+
+            <!-- أزرار القنوات المطلوبة -->
+            <div class="space-y-3 mb-5 text-right">
+                <div id="wa-step-box" class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-900/90 border border-slate-700 transition-all duration-300">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-lg shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="truncate">
+                            <h3 class="font-bold text-white text-xs sm:text-sm truncate">1. قناة واتساب الرسمية</h3>
+                            <p id="wa-status-text" class="text-[11px] text-slate-400 truncate">اضغط للاشتراك وتفعيل الخطوة الأولى</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="handleChannelClick('wa', 'https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M')" id="wa-btn"
+                            class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-all flex items-center gap-1.5 shrink-0 shadow-lg shadow-emerald-600/20 cursor-pointer">
+                        <span>اشتراك</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </button>
+                </div>
+
+                <div id="tg-step-box" class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-900/90 border border-slate-700 transition-all duration-300">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-500/40 flex items-center justify-center text-sky-400 text-lg shrink-0">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div class="truncate">
+                            <h3 class="font-bold text-white text-xs sm:text-sm truncate">2. قناة تلجرام الرسمية</h3>
+                            <p id="tg-status-text" class="text-[11px] text-slate-400 truncate">اضغط للانضمام وتفعيل الخطوة الثانية</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="handleChannelClick('tg', 'https://t.me/azizbitari')" id="tg-btn"
+                            class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all flex items-center gap-1.5 shrink-0 shadow-lg shadow-sky-600/20 cursor-pointer">
+                        <span>اشتراك</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التقدم -->
+            <div class="mb-5">
+                <div class="flex justify-between text-xs text-slate-400 mb-1.5">
+                    <span>حالة التحقق من الاشتراك</span>
+                    <span id="gate-progress-label" class="font-bold text-cyber-cyan">0 / 2 مكتمل</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden p-0.5">
+                    <div id="gate-progress-bar" class="h-full w-0 bg-gradient-to-r from-cyber-cyan to-cyber-green rounded-full transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- زر الدخول إلى الموقع -->
+            <button type="button" id="enter-site-btn" disabled onclick="unlockWebsite()"
+                    class="w-full py-3.5 px-6 rounded-xl font-black text-base transition-all duration-300 flex items-center justify-center gap-2 bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700">
+                <i id="enter-btn-icon" class="fa-solid fa-lock"></i>
+                <span id="enter-btn-text">اشترك في القناتين لفتح الموقع</span>
+            </button>
+
+            <!-- رابط مركز المساعدة أسفل البوابة -->
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-center gap-2 text-xs text-slate-400">
+                <span>واجهت مشكلة في الدخول؟</span>
+                <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer" class="text-cyber-green hover:underline font-bold inline-flex items-center gap-1">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>مركز المساعدة</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== المحتوى الرئيسي للموقع ==================== -->
+    <div id="main-app" class="relative z-10 flex-1 flex flex-col">
+        
+        <!-- القائمة الجانبية المنزلقة على اليسار -->
+        <div id="left-sidebar-backdrop" onclick="toggleLeftSidebar(false)" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300"></div>
+        <aside id="left-sidebar" dir="rtl" class="fixed top-0 left-0 bottom-0 z-50 w-80 max-w-[85vw] bg-[#090f1d] border-r border-cyber-cyan/40 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-xl overflow-hidden border border-cyber-cyan/60 bg-[#040914] shrink-0">
+                        <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="240" height="240" fill="#051320"/>
+                            <path d="M120 20 L195 48 V118 C195 165 160 198 120 218 C80 198 45 165 45 118 V48 Z" fill="#081629" stroke="#00f0ff" stroke-width="8"/>
+                            <path d="M92 98 C92 62 106 46 120 46 C134 46 148 62 148 98 Z" fill="#0f172a"/>
+                            <text x="120" y="162" text-anchor="middle" fill="#00ff88" font-family="Orbitron, sans-serif" font-weight="900" font-size="74">AB</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-orbitron font-black text-sm text-cyber-cyan block">AB HACKERS</span>
+                        <span class="text-[11px] text-slate-400">قائمة المميزات السريعة</span>
+                    </div>
+                </div>
+                <button type="button" onclick="toggleLeftSidebar(false)" class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 border border-slate-700 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 space-y-5">
+                <button type="button" onclick="navigateToView('home'); toggleLeftSidebar(false);" class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan/20 to-cyber-green/20 border border-cyber-cyan/40 text-white font-bold text-xs sm:text-sm flex items-center gap-2.5 hover:border-cyber-cyan transition">
+                    <i class="fa-solid fa-border-all text-cyber-cyan"></i>
+                    <span>الواجهة الرئيسية (جميع الأزرار)</span>
+                </button>
+
+                <div>
+                    <div class="text-[11px] font-black text-cyber-cyan uppercase tracking-wider mb-2 px-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <span>خانات الحساسية والأداء</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <button type="button" onclick="navigateToView('sensitivity'); focusPhoneSearch(); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-cyan/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-magnifying-glass text-cyber-cyan"></i> البحث عن حساسية الهاتف</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('sensitivity'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-cyan/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-sliders text-cyber-cyan"></i> إعدادات الهيدشوت و DPI</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('hud'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-cyan/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-gamepad text-cyber-cyan"></i> تخطيطات التحكم (Custom HUD)</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('gloo'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-cyan/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-bolt text-cyber-gold"></i> تسريع الأداء وتقليل اللاق</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-[11px] font-black text-cyber-green uppercase tracking-wider mb-2 px-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-star"></i>
+                        <span>مميزات المنصة</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <button type="button" onclick="navigateToView('characters'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-green/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-user-ninja text-cyber-green"></i> دمج الشخصيات والمهارات</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('characters'); scrollToSub('tier-list-box'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-green/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-ranking-star text-cyber-green"></i> تصنيف الشخصيات (Tier List)</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('weapons'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-gold/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-gun text-cyber-gold"></i> دليل ومقارنة الأسلحة</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('maps'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-cyan/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-map-location-dot text-cyber-cyan"></i> خرائط الهبوط الاستراتيجية</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                        <button type="button" onclick="navigateToView('gloo'); toggleLeftSidebar(false);" class="w-full text-right px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyber-green/50 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-shield-virus text-cyber-green"></i> تكتيكات جدار الثلج</span>
+                            <i class="fa-solid fa-chevron-left text-[10px] text-slate-500"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-[11px] font-black text-emerald-400 uppercase tracking-wider mb-2 px-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>الدعم والمساعدة</span>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
+                           class="w-full px-3.5 py-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 text-xs sm:text-sm font-black flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-brands fa-whatsapp text-lg"></i> مركز المساعدة (واتساب)</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                        <a href="https://t.me/azizbitari" target="_blank" rel="noopener noreferrer"
+                           class="w-full px-3.5 py-2.5 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 border border-sky-500/50 text-sky-300 text-xs sm:text-sm font-bold flex items-center justify-between transition">
+                            <span class="flex items-center gap-2.5"><i class="fa-brands fa-telegram text-lg"></i> قناة تلجرام الرسمية</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- الشريط العلوي (Navbar) -->
+        <header class="sticky top-0 z-40 bg-[#070b14]/90 backdrop-blur-lg border-b border-slate-800/90">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between py-2.5">
+                    
+                    <button type="button" onclick="navigateToView('home')" class="flex items-center gap-3 group text-right">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-cyber-cyan/60 group-hover:border-cyber-green transition-all logo-glow bg-[#040914] shrink-0">
+                            <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="240" height="240" fill="#051320"/>
+                                <path d="M120 20 L195 48 V118 C195 165 160 198 120 218 C80 198 45 165 45 118 V48 Z" fill="#081629" stroke="#00f0ff" stroke-width="8"/>
+                                <path d="M92 98 C92 62 106 46 120 46 C134 46 148 62 148 98 Z" fill="#0f172a"/>
+                                <text x="120" y="162" text-anchor="middle" fill="#00ff88" font-family="Orbitron, sans-serif" font-weight="900" font-size="74">AB</text>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-orbitron font-black text-lg sm:text-xl tracking-wider bg-gradient-to-r from-cyber-cyan to-cyber-green bg-clip-text text-transparent block leading-none">
+                                AB HACKERS
+                            </span>
+                            <span class="text-[11px] text-slate-400 font-semibold">منصة احتراف فري فاير</span>
+                        </div>
+                    </button>
+
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
+                           class="hidden sm:flex px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm items-center gap-2 shadow-lg shadow-emerald-600/20 transition">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>مركز المساعدة</span>
+                        </a>
+
+                        <!-- زر الثلاثة شروط (☰) على الجانب الأيسر -->
+                        <button type="button" onclick="toggleLeftSidebar(true)" aria-label="فتح القائمة الجانبية"
+                                class="p-2.5 sm:px-3.5 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyber-cyan/50 text-cyber-cyan hover:text-white transition flex items-center gap-2 shadow-lg shadow-cyber-cyan/10">
+                            <div class="flex flex-col justify-center items-center w-5 h-5 gap-1.5">
+                                <span class="w-5 h-0.5 bg-cyber-cyan rounded-full"></span>
+                                <span class="w-5 h-0.5 bg-cyber-green rounded-full"></span>
+                                <span class="w-5 h-0.5 bg-cyber-cyan rounded-full"></span>
+                            </div>
+                            <span class="hidden md:inline text-xs font-black">القائمة</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== الواجهة الرئيسية (الأزرار فقط) ==================== -->
+        <main id="view-home" class="app-view flex-1 py-8 sm:py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-cyber-card/90 neon-border-cyan rounded-3xl p-6 sm:p-8 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex flex-col sm:flex-row items-center text-center sm:text-right gap-5">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-cyber-cyan/70 logo-glow bg-[#040914] shrink-0">
+                            <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="240" height="240" fill="#051320"/>
+                                <path d="M120 20 L195 48 V118 C195 165 160 198 120 218 C80 198 45 165 45 118 V48 Z" fill="#081629" stroke="#00f0ff" stroke-width="7"/>
+                                <path d="M92 98 C92 62 106 46 120 46 C134 46 148 62 148 98 Z" fill="#0f172a"/>
+                                <text x="120" y="158" text-anchor="middle" fill="#00ff88" font-family="Orbitron, sans-serif" font-weight="900" font-size="68">AB</text>
+                                <text x="120" y="226" text-anchor="middle" fill="#e0f2fe" font-family="Orbitron, sans-serif" font-weight="900" font-size="16" letter-spacing="2">AB HACKERS</text>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyber-gold/10 border border-cyber-gold/40 text-cyber-gold text-xs font-bold mb-2">
+                                <i class="fa-solid fa-fire-flame-curved"></i>
+                                <span>مركز التحكم الرئيسي • Free Fire</span>
+                            </div>
+                            <h1 class="text-2xl sm:text-3xl font-black text-white mb-1">
+                                مرحباً بك في <span class="font-orbitron text-cyber-cyan">AB HACKERS</span>
+                            </h1>
+                            <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
+                                اختر الأداة أو القسم الذي تريده من الأزرار أدناه، أو افتح القائمة الجانبية في اليسار للوصول السريع.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="navigateToView('sensitivity'); focusPhoneSearch();"
+                            class="ff-btn-clip w-full md:w-auto px-6 py-4 bg-gradient-to-r from-cyber-cyan to-cyber-green text-slate-950 font-black text-sm hover:opacity-95 transition flex items-center justify-center gap-2.5 shadow-xl shadow-cyber-cyan/20 shrink-0">
+                        <i class="fa-solid fa-magnifying-glass text-base"></i>
+                        <span>ابحث عن حساسية هاتفك الآن</span>
+                    </button>
+                </div>
+
+                <!-- شرح مبسط للمبتدئين: كيف تستعمل الموقع في 3 خطوات -->
+                <div class="bg-slate-900/80 border border-cyber-cyan/30 rounded-2xl p-4 sm:p-5 mb-7">
+                    <div class="text-xs sm:text-sm font-black text-cyber-cyan mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>دليل سريع للمبتدئين: كيفاش تخدم الموقع بكل سهولة؟</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-full bg-cyber-cyan text-slate-950 font-black flex items-center justify-center shrink-0">1</span>
+                            <span class="text-slate-200 font-semibold">اكتب نوع هاتفك في خانة البحث واضغط على الزر الأخضر.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-full bg-cyber-green text-slate-950 font-black flex items-center justify-center shrink-0">2</span>
+                            <span class="text-slate-200 font-semibold">ستظهر لك الأرقام جاهزة، اضغط <strong>نسخ الإعدادات</strong>.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-full bg-cyber-gold text-slate-950 font-black flex items-center justify-center shrink-0">3</span>
+                            <span class="text-slate-200 font-semibold">افتح فري فاير، اذهب إلى <strong>الإعدادات ← الحساسية</strong> واكتب نفس الأرقام.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-cyber-cyan"></i>
+                        <span>اختر القسم المطلوب</span>
+                    </h2>
+                    <span class="text-xs text-slate-400">اضغط على أي زر لفتح المحتوى</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    <!-- زر 1: الحساسية -->
+                    <button type="button" onclick="navigateToView('sensitivity')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-cyber-cyan/40 hover:border-cyber-cyan transition-all duration-300 shadow-lg hover:shadow-cyber-cyan/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-cyber-cyan/15 border border-cyber-cyan/40 text-cyber-cyan text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-crosshairs"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-cyan/10 text-cyber-cyan text-[11px] font-bold">الأكثر طلباً 🔥</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-cyber-cyan transition mb-1.5">
+                                الحساسية والبحث عن الهاتف
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                اكتب نوع هاتفك واحصل فوراً على إعدادات الهيدشوت والـ DPI وحجم زر الضرب.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-cyber-cyan pt-3 border-t border-slate-800/80">
+                            <span>دخول للقسم</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+
+                    <!-- زر 2: الشخصيات -->
+                    <button type="button" onclick="navigateToView('characters')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-cyber-green/40 hover:border-cyber-green transition-all duration-300 shadow-lg hover:shadow-cyber-green/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-cyber-green/15 border border-cyber-green/40 text-cyber-green text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-green/10 text-cyber-green text-[11px] font-bold">+ Tier List</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-cyber-green transition mb-1.5">
+                                دمج الشخصيات والمهارات
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                أقوى تشكيلات الهجوم والصمود والقنص مع صور الشخصيات وتصنيف الأقوى.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-cyber-green pt-3 border-t border-slate-800/80">
+                            <span>استعراض التشكيلات</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+
+                    <!-- زر 3: الأسلحة -->
+                    <button type="button" onclick="navigateToView('weapons')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-cyber-gold/40 hover:border-cyber-gold transition-all duration-300 shadow-lg hover:shadow-cyber-gold/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-cyber-gold/15 border border-cyber-gold/40 text-cyber-gold text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gun"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-gold/10 text-cyber-gold text-[11px] font-bold">بحث ومقارنة</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-cyber-gold transition mb-1.5">
+                                دليل ومقارنة الأسلحة
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                ابحث عن أي سلاح وقارن بين MP40 و UMP و M1887 و Trogon و AWM.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-cyber-gold pt-3 border-t border-slate-800/80">
+                            <span>مقارنة الأسلحة</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+
+                    <!-- زر 4: الخرائط -->
+                    <button type="button" onclick="navigateToView('maps')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-sky-500/40 hover:border-sky-400 transition-all duration-300 shadow-lg hover:shadow-sky-500/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-sky-500/15 border border-sky-500/40 text-sky-400 text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-300 text-[11px] font-bold">برمودا • نيكستيرا</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-sky-400 transition mb-1.5">
+                                خرائط الهبوط الاستراتيجية
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                ابحث عن مناطق اللوت القوي والمناطق الآمنة لرفع الرانك بسرعة في جميع الخرائط.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-sky-400 pt-3 border-t border-slate-800/80">
+                            <span>استكشاف الخرائط</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+
+                    <!-- زر 5: Custom HUD -->
+                    <button type="button" onclick="navigateToView('hud')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-purple-500/40 hover:border-purple-400 transition-all duration-300 shadow-lg hover:shadow-purple-500/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-purple-500/15 border border-purple-500/40 text-purple-400 text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 text-[11px] font-bold">2 • 3 • 4 أصابع</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-purple-400 transition mb-1.5">
+                                تخطيطات التحكم (Custom HUD)
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                أفضل توزيع للأزرار للعب بإصبعين أو 3 أو 4 أصابع مع أكواد جاهزة.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-purple-400 pt-3 border-t border-slate-800/80">
+                            <span>عرض التخطيطات</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+
+                    <!-- زر 6: جدار الثلج وتسريع الأداء -->
+                    <button type="button" onclick="navigateToView('gloo')"
+                            class="group text-right p-5 sm:p-6 rounded-2xl bg-cyber-card hover:bg-slate-900 border border-rose-500/40 hover:border-rose-400 transition-all duration-300 shadow-lg hover:shadow-rose-500/20 flex flex-col justify-between">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3.5 rounded-2xl bg-rose-500/15 border border-rose-500/40 text-rose-400 text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-shield-virus"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-300 text-[11px] font-bold">FPS + Gloo Wall</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white group-hover:text-rose-400 transition mb-1.5">
+                                جدار الثلج وتسريع الأداء
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                                احتراف ثلجة الجلوس السريعة وخطوات إزالة اللاق ورفع الفريمات للأجهزة الضعيفة.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-black text-rose-400 pt-3 border-t border-slate-800/80">
+                            <span>فتح التكتيكات</span>
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- زر مركز المساعدة -->
+                <div class="mt-6">
+                    <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
+                       class="w-full p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-950/90 via-teal-950/90 to-emerald-950/90 hover:from-emerald-900 hover:to-teal-900 border border-emerald-500/50 flex flex-col sm:flex-row items-center justify-between gap-4 transition shadow-lg">
+                        <div class="flex items-center gap-4 text-center sm:text-right">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 text-2xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-black text-white">مركز المساعدة والدعم المباشر</h3>
+                                <p class="text-xs text-emerald-200/80">تواصل معنا عبر قناة واتساب الرسمية لأي استفسار أو طلب إعدادات خاصة</p>
+                            </div>
+                        </div>
+                        <span class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shrink-0">
+                            <span>دخول مركز المساعدة</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- ==================== القسم 1: الحساسية والبحث عن الهاتف ==================== -->
+        <section id="view-sensitivity" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-cyber-cyan"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/30 px-3 py-1.5 rounded-full">
+                        قسم الحساسية والهيدشوت
+                    </span>
+                </div>
+
+                <!-- مربع البحث عن نوع الهاتف -->
+                <div class="bg-cyber-card neon-border-green rounded-2xl p-5 sm:p-7 mb-6">
+                    <div class="flex items-center gap-2.5 mb-2">
+                        <i class="fa-solid fa-mobile-screen-button text-cyber-green text-xl"></i>
+                        <h2 class="text-xl sm:text-2xl font-black text-white">ابحث عن نوع هاتفك لاستخراج الحساسية المناسبة</h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 mb-4">
+                        اكتب اسم وموديل هاتفك (مثلاً: <span class="text-white font-semibold">Samsung A15, Redmi Note 13, iPhone 11, Poco X6, Infinix Hot 40</span>) وستظهر لك الحساسية مباشرة.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="phone-model-input" oninput="handlePhoneAutocomplete()" onkeydown="if(event.key==='Enter'){searchPhoneSensitivity(false);}" autocomplete="off"
+                                   placeholder="اكتب نوع الهاتف ديالك هنا (مثال: Redmi Note 12 أو Samsung A54)..."
+                                   class="w-full pr-11 pl-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyber-green text-white text-sm font-bold placeholder-slate-500 focus:outline-none">
+                            <div id="phone-autocomplete-list" class="hidden absolute left-0 right-0 top-full mt-1.5 z-30 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden max-h-56 overflow-y-auto"></div>
+                        </div>
+                        <button type="button" onclick="searchPhoneSensitivity(false)" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-green to-cyber-cyan text-slate-950 font-black text-sm hover:opacity-90 transition flex items-center justify-center gap-2 shrink-0 shadow-lg cursor-pointer">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>استخراج الحساسية</span>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 mt-4">
+                        <span class="text-xs text-slate-400 font-semibold">هواتف شائعة:</span>
+                        <button type="button" onclick="quickSelectPhone('Samsung Galaxy A15')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">Samsung A15</button>
+                        <button type="button" onclick="quickSelectPhone('Redmi Note 13')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">Redmi Note 13</button>
+                        <button type="button" onclick="quickSelectPhone('iPhone 11 / 13')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">iPhone 11 / 13</button>
+                        <button type="button" onclick="quickSelectPhone('Poco X6 Pro')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">Poco X6 Pro</button>
+                        <button type="button" onclick="quickSelectPhone('Infinix Hot 40 Pro')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">Infinix Hot 40</button>
+                        <button type="button" onclick="quickSelectPhone('Oppo Reno 11')" class="px-3 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">Oppo Reno 11</button>
+                    </div>
+                </div>
+
+                <!-- بطاقة نتائج الحساسية -->
+                <div id="sensitivity-result-card" class="bg-cyber-card neon-border-cyan rounded-2xl p-5 sm:p-8 transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs text-cyber-cyan font-bold block mb-1">الإعدادات المفعّلة حالياً:</span>
+                            <h3 id="active-phone-title" class="text-xl sm:text-2xl font-black text-white">هواتف ضعيفة (2GB - 4GB RAM)</h3>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="selectDeviceTier('low')" id="tier-btn-low" class="tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-cyber-cyan text-slate-950 transition">هاتف ضعيف</button>
+                            <button type="button" onclick="selectDeviceTier('mid')" id="tier-btn-mid" class="tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-slate-900 text-slate-300 border border-slate-700 transition">هاتف متوسط</button>
+                            <button type="button" onclick="selectDeviceTier('high')" id="tier-btn-high" class="tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-slate-900 text-slate-300 border border-slate-700 transition">هاتف قوي / آيفون</button>
+                            <button type="button" onclick="copySensitivitySettings()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-green text-slate-950 font-black text-xs hover:opacity-90 transition flex items-center gap-1.5 shadow-lg">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>نسخ الإعدادات</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6 items-center">
+                        <div id="sensitivity-bars" class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+
+                        <div class="md:col-span-4 bg-slate-900/90 border border-slate-700/80 rounded-2xl p-5 space-y-4">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-slate-400 text-sm font-semibold">قيمة DPI المقترحة</span>
+                                <span id="sens-dpi" class="font-orbitron font-black text-xl text-cyber-green">580 DPI</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-slate-400 text-sm font-semibold">حجم زر إطلاق النار</span>
+                                <span id="sens-firebtn" class="font-orbitron font-black text-xl text-cyber-gold">44%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 text-sm font-semibold">معدل التحديث</span>
+                                <span id="sens-fps" class="font-bold text-sm text-cyber-cyan">60 FPS / مرتفع</span>
+                            </div>
+                            <p id="sens-tip" class="text-xs text-slate-300 bg-slate-800/70 p-3 rounded-xl leading-relaxed border-r-2 border-cyber-cyan"></p>
+                        </div>
+                    </div>
+
+                    <!-- شرح مبسط للمبتدئين داخل صفحة الحساسية -->
+                    <div class="mt-6 pt-5 border-t border-slate-800/80 bg-slate-950/70 rounded-2xl p-4 sm:p-5">
+                        <h4 class="text-sm font-black text-cyber-green mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>نصيحة بسيطة للمبتدئين باش يجيك الهيدشوت ساهل:</span>
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            ملي تشوف العدو قدامك، حط النقطة أو المؤشر قريب من الصدر، ثم جرّ زر إطلاق النار نحو الأعلى بخفة وبسرعة متوسطة. إذا طلع السلاح فوق الرأس بزاف، نقص رقم <strong>العام (General)</strong> بـ 3 أو 5 نقاط، وإذا بقى لتحت، زيدو بـ 3 أو 5 نقاط.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== القسم 2: تخطيطات التحكم (Custom HUD) ==================== -->
+        <section id="view-hud" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-purple-400"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-purple-300 bg-purple-500/10 border border-purple-500/30 px-3 py-1.5 rounded-full">Custom HUD</span>
+                </div>
+
+                <div class="bg-cyber-card border border-purple-500/40 rounded-2xl p-6 sm:p-8">
+                    <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5 mb-5">
+                        <i class="fa-solid fa-gamepad text-purple-400"></i>
+                        <span>تخطيطات التحكم المخصصة (Custom HUD)</span>
+                    </h2>
+
+                    <div class="relative mb-5">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="hud-search-input" oninput="searchHudLayouts()" placeholder="ابحث عن تخطيط التحكم (مثال: 2 أصابع، 3 أصابع، 4 أصابع، ون شوت، ثلجة الجلوس)..."
+                               class="w-full pr-11 pl-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-purple-400 text-white text-xs sm:text-sm font-bold placeholder-slate-500 focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2.5 mb-6">
+                        <button type="button" onclick="selectHud('2f')" id="hud-btn-2f" class="hud-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-cyber-cyan/20 text-cyber-cyan border border-cyber-cyan/50 transition">
+                            إصبعين (2 Fingers)
+                        </button>
+                        <button type="button" onclick="selectHud('3f')" id="hud-btn-3f" class="hud-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                            3 أصابع (3 Fingers)
+                        </button>
+                        <button type="button" onclick="selectHud('4f')" id="hud-btn-4f" class="hud-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition">
+                            4 أصابع (4 Fingers)
+                        </button>
+                    </div>
+
+                    <div class="relative h-56 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden mb-5 p-4">
+                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#00f0ff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div id="hud-visual-overlay" class="relative z-10 w-full h-full"></div>
+                    </div>
+
+                    <div id="hud-details" class="space-y-2 text-sm text-slate-300"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== القسم 3: دمج الشخصيات والمهارات ==================== -->
+        <section id="view-characters" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-cyber-green"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-cyber-green bg-cyber-green/10 border border-cyber-green/30 px-3 py-1.5 rounded-full">دمج الشخصيات والمهارات</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white">أقوى تشكيلات دمج الشخصيات والمهارات</h2>
+                        <p class="text-slate-400 text-sm mt-1">اختر أسلوب لعبك المفضل لعرض التشكيلة المناسبة</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" onclick="filterCombos('all')" class="combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-green text-slate-950 transition" data-filter="all">الكل</button>
+                        <button type="button" onclick="filterCombos('rush')" class="combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-green transition" data-filter="rush">
+                            <i class="fa-solid fa-fire ml-1 text-rose-500"></i> هجوم سريع (Rush)
+                        </button>
+                        <button type="button" onclick="filterCombos('survival')" class="combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-green transition" data-filter="survival">
+                            <i class="fa-solid fa-shield ml-1 text-cyber-cyan"></i> صمود ورانكد (BR)
+                        </button>
+                        <button type="button" onclick="filterCombos('sniper')" class="combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-green transition" data-filter="sniper">
+                            <i class="fa-solid fa-crosshairs ml-1 text-cyber-gold"></i> قنص ودعم
+                        </button>
+                    </div>
+                </div>
+
+                <div id="combos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"></div>
+
+                <!-- تصنيف الشخصيات (Tier List) -->
+                <div id="tier-list-box" class="bg-cyber-card neon-border-green rounded-2xl p-5 sm:p-7">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-xl font-black text-white flex items-center gap-2">
+                                <i class="fa-solid fa-ranking-star text-cyber-green"></i>
+                                <span>تصنيف الشخصيات الأقوى (Character Tier List)</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400">ترتيب الشخصيات الأكثر تأثيراً في التحديث الحالي</p>
+                        </div>
+                        <input type="text" id="char-search" oninput="filterTierList()" placeholder="ابحث عن شخصية (مثل: ألوك، تاتسويا، كيلي)..."
+                               class="w-full sm:w-72 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-green">
+                    </div>
+
+                    <div class="space-y-4" id="tier-list-container">
+                        <div class="flex flex-col sm:flex-row items-stretch rounded-xl overflow-hidden border border-slate-800 bg-slate-900/60">
+                            <div class="sm:w-20 bg-gradient-to-br from-rose-600 to-amber-500 flex items-center justify-center p-3 font-orbitron font-black text-2xl text-white shrink-0">S+</div>
+                            <div class="p-3.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 flex-1 tier-items" id="tier-s-list"></div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-stretch rounded-xl overflow-hidden border border-slate-800 bg-slate-900/60">
+                            <div class="sm:w-20 bg-gradient-to-br from-cyber-cyan to-blue-600 flex items-center justify-center p-3 font-orbitron font-black text-2xl text-slate-950 shrink-0">A</div>
+                            <div class="p-3.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 flex-1 tier-items" id="tier-a-list"></div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-stretch rounded-xl overflow-hidden border border-slate-800 bg-slate-900/60">
+                            <div class="sm:w-20 bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center p-3 font-orbitron font-black text-2xl text-white shrink-0">B</div>
+                            <div class="p-3.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 flex-1 tier-items" id="tier-b-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== القسم 4: دليل ومقارنة الأسلحة ==================== -->
+        <section id="view-weapons" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-cyber-gold"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-cyber-gold bg-cyber-gold/10 border border-cyber-gold/30 px-3 py-1.5 rounded-full">دليل ومقارنة الأسلحة</span>
+                </div>
+
+                <div class="bg-cyber-card neon-border-gold rounded-2xl p-5 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced text-cyber-gold"></i>
+                            <span>مقارنة الأسلحة وإحصائياتها</span>
+                        </h2>
+
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" onclick="selectWeaponMatchup('smg')" id="wp-btn-smg" class="wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-gold text-slate-950 transition">MP40 ضد UMP</button>
+                            <button type="button" onclick="selectWeaponMatchup('sg')" id="wp-btn-sg" class="wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-gold transition">M1887 ضد Trogon</button>
+                            <button type="button" onclick="selectWeaponMatchup('ar')" id="wp-btn-ar" class="wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-gold transition">Woodpecker ضد AC80</button>
+                        </div>
+                    </div>
+
+                    <div class="relative mt-5">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="weapon-search-input" oninput="searchWeapons()" placeholder="ابحث عن أي سلاح (مثال: MP40, UMP, M1887, Trogon, Woodpecker, AC80, AWM, M1014)..."
+                               class="w-full pr-11 pl-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyber-gold text-white text-xs sm:text-sm font-bold placeholder-slate-500 focus:outline-none">
+                    </div>
+
+                    <div id="weapon-comparison-area" class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== القسم 5: خرائط الهبوط الاستراتيجية ==================== -->
+        <section id="view-maps" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-sky-400"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-sky-300 bg-sky-500/10 border border-sky-500/30 px-3 py-1.5 rounded-full">خرائط الهبوط الاستراتيجية</span>
+                </div>
+
+                <div class="bg-cyber-card border border-sky-500/40 rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                        <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-cyber-cyan"></i>
+                            <span>أفضل أماكن النزول واللوت في الخرائط</span>
+                        </h2>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="selectMap('bermuda')" id="map-btn-bermuda" class="map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-cyan text-slate-950 transition">برمودا</button>
+                            <button type="button" onclick="selectMap('purgatory')" id="map-btn-purgatory" class="map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 transition">برغاتوري</button>
+                            <button type="button" onclick="selectMap('nexterra')" id="map-btn-nexterra" class="map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 transition">نيكستيرا</button>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-5">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="map-search-input" oninput="searchMapsAndZones()" placeholder="ابحث عن خريطة أو منطقة هبوط (مثال: Peak, Clock Tower, Brasilia, برمودا, لوت قوي, آمنة)..."
+                               class="w-full pr-11 pl-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyber-cyan text-white text-xs sm:text-sm font-bold placeholder-slate-500 focus:outline-none">
+                    </div>
+
+                    <div id="map-zones-content" class="space-y-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== القسم 6: تكتيكات جدار الثلج وتسريع الأداء ==================== -->
+        <section id="view-gloo" class="app-view hidden py-8 sm:py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <button type="button" onclick="navigateToView('home')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-right text-rose-400"></i>
+                        <span>الرجوع إلى الأزرار الرئيسية</span>
+                    </button>
+                    <span class="text-xs font-bold text-rose-300 bg-rose-500/10 border border-rose-500/30 px-3 py-1.5 rounded-full">جدار الثلج وتسريع الأداء</span>
+                </div>
+
+                <div class="relative mb-6">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="gloo-search-input" oninput="searchGlooAndFps()" placeholder="ابحث في تكتيكات الثلج وتسريع الأداء (مثال: ثلجة الجلوس، M82B، إزالة اللاق، Game Turbo، الحرارة)..."
+                           class="w-full pr-11 pl-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 focus:border-rose-400 text-white text-xs sm:text-sm font-bold placeholder-slate-500 focus:outline-none">
+                </div>
+
+                <div id="gloo-cards-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-black text-white flex items-center gap-2 mb-4">
+                                <i class="fa-solid fa-shield-virus text-cyber-green"></i>
+                                <span>تكتيكات جدار الثلج (Gloo Wall)</span>
+                            </h3>
+                            <div class="space-y-3.5">
+                                <div class="gloo-searchable-item p-3.5 rounded-xl bg-slate-900/90 border-r-4 border-cyber-cyan">
+                                    <h4 class="font-bold text-white text-sm mb-1">1. ثلجة الجلوس السريعة (Sit-Up Gloo Wall)</h4>
+                                    <p class="text-xs text-slate-300 leading-relaxed">
+                                        فور إطلاق الرصاصة ورفع الإيم، اضغط زر الجلوس ثم ضع الثلجة وأنت تنظر للأسفل قليلاً لتلتصق بك مباشرة وتمنع الخصم من إصابتك.
+                                    </p>
+                                </div>
+                                <div class="gloo-searchable-item p-3.5 rounded-xl bg-slate-900/90 border-r-4 border-cyber-green">
+                                    <h4 class="font-bold text-white text-sm mb-1">2. الخداع وتغيير الزاوية (360° & Fake Move)</h4>
+                                    <p class="text-xs text-slate-300 leading-relaxed">
+                                        ضع ثلجة أمامك وأوهم الخصم بالخروج من اليمين، ثم اقفز بسرعة من اليسار بسلاح شوتقن لمفاجأته.
+                                    </p>
+                                </div>
+                                <div class="gloo-searchable-item p-3.5 rounded-xl bg-slate-900/90 border-r-4 border-rose-500">
+                                    <h4 class="font-bold text-rose-300 text-sm mb-1">3. كيف تتعامل مع سلاح M82B المخترق؟</h4>
+                                    <p class="text-xs text-slate-300 leading-relaxed">
+                                        لا تقف خلف ثلجة واحدة أبداً ضد قناصة M82B؛ ضع ثلجتين متباعدتين واستخدم شخصية <span class="text-white font-bold">نيري (Nairi)</span> أو <span class="text-white font-bold">كرونو</span>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                            <span>الحيوان الأليف الأنسب للثلج:</span>
+                            <span class="text-cyber-cyan font-bold">السيد واجور (Mr. Waggor) 🐧</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6">
+                        <h3 class="text-xl font-black text-white flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-bolt text-cyber-gold"></i>
+                            <span>تحسين الأداء وتقليل اللاق (FPS Boost)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mb-4">طبّق هذه الخطوات لتسريع اللعبة على الأجهزة الضعيفة ومنع التقطيع:</p>
+
+                        <div class="space-y-3">
+                            <label class="gloo-searchable-item flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer hover:border-cyber-green/50 transition">
+                                <input type="checkbox" class="mt-1 accent-emerald-400 w-4 h-4 rounded" checked>
+                                <div>
+                                    <span class="font-bold text-white text-sm block">ضبط الجرافيك على Smooth + High FPS</span>
+                                    <span class="text-xs text-slate-400">اختر جودة رسوميات (ناعم) مع تفعيل معدل إطارات (مرتفع) للحصول على أقصى سلاسة.</span>
+                                </div>
+                            </label>
+                            <label class="gloo-searchable-item flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer hover:border-cyber-green/50 transition">
+                                <input type="checkbox" class="mt-1 accent-emerald-400 w-4 h-4 rounded" checked>
+                                <div>
+                                    <span class="font-bold text-white text-sm block">حذف حزم الموارد غير الضرورية</span>
+                                    <span class="text-xs text-slate-400">من مركز التحميل داخل اللعبة، احذف سكنات الخرائط والملابس التي لا تستخدمها لتخفيف الرام.</span>
+                                </div>
+                            </label>
+                            <label class="gloo-searchable-item flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer hover:border-cyber-green/50 transition">
+                                <input type="checkbox" class="mt-1 accent-emerald-400 w-4 h-4 rounded">
+                                <div>
+                                    <span class="font-bold text-white text-sm block">تفعيل وضع الألعاب (Game Turbo) وإغلاق الخلفية</span>
+                                    <span class="text-xs text-slate-400">أغلق تطبيقات التواصل في الخلفية وامسح ذاكرة التخزين المؤقت قبل اللعب.</span>
+                                </div>
+                            </label>
+                            <label class="gloo-searchable-item flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer hover:border-cyber-green/50 transition">
+                                <input type="checkbox" class="mt-1 accent-emerald-400 w-4 h-4 rounded">
+                                <div>
+                                    <span class="font-bold text-white text-sm block">تجنب اللعب أثناء الشحن لتقليل الحرارة</span>
+                                    <span class="text-xs text-slate-400">ارتفاع حرارة المعالج يسبب هبوط الفريمات المفاجئ في نهاية الجيم.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==================== التذييل (Footer) ==================== -->
+    <footer class="relative z-10 bg-[#04070e] border-t border-slate-800/90 pt-8 pb-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl overflow-hidden border border-cyber-cyan/50 bg-[#040914] shrink-0">
+                        <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="240" height="240" fill="#051320"/>
+                            <path d="M120 20 L195 48 V118 C195 165 160 198 120 218 C80 198 45 165 45 118 V48 Z" fill="#081629" stroke="#00f0ff" stroke-width="8"/>
+                            <text x="120" y="158" text-anchor="middle" fill="#00ff88" font-family="Orbitron, sans-serif" font-weight="900" font-size="72">AB</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-base text-white">AB HACKERS</h3>
+                        <p class="text-xs text-cyber-cyan">منصة احتراف فري فاير الأولى</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-2.5">
+                    <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
+                       class="px-4 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-2 transition">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>مركز المساعدة (واتساب)</span>
+                    </a>
+                    <a href="https://t.me/azizbitari" target="_blank" rel="noopener noreferrer"
+                       class="px-4 py-2 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 border border-sky-500/40 text-sky-300 text-xs font-bold flex items-center gap-2 transition">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>قناة تلجرام</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+                <p>© 2026 منصة <span class="text-slate-300 font-bold">AB HACKERS</span> — جميع الحقوق محفوظة.</p>
+                <p>مصمم خصيصاً لعشاق ومجتمع Free Fire 🎮</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== السكربتات التفاعلية الكاملة والنظيفة ==================== -->
+    <script>
+        // --- 0. التحكم في القائمة الجانبية والتنقل ---
+        function toggleLeftSidebar(open) {
+            const sidebar = document.getElementById('left-sidebar');
+            const backdrop = document.getElementById('left-sidebar-backdrop');
+            if (!sidebar || !backdrop) return;
+            if (open) {
+                backdrop.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    backdrop.classList.remove('opacity-0');
+                    sidebar.classList.remove('-translate-x-full');
+                });
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('opacity-0');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
+        }
+
+        function navigateToView(viewId) {
+            document.querySelectorAll('.app-view').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById(`view-${viewId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function focusPhoneSearch() {
+            setTimeout(() => {
+                const input = document.getElementById('phone-model-input');
+                if (input) input.focus();
+            }, 150);
+        }
+
+        function scrollToSub(elementId) {
+            setTimeout(() => {
+                const el = document.getElementById(elementId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
+
+        // --- 1. بوابة الاشتراك والتحقق ---
+        const GATE_STORAGE_KEY = 'ab_hackers_ff_unlocked_v2';
+        let channelState = { wa: false, tg: false };
+
+        function handleChannelClick(channel, url) {
+            try {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } catch (e) {
+                console.warn('تعذر فتح الرابط الخارجي:', e);
+            }
+            channelState[channel] = true;
+            updateGateUI();
+            showToast(channel === 'wa' ? 'تم تفعيل اشتراك قناة واتساب بنجاح ✅' : 'تم تفعيل اشتراك قناة تلجرام بنجاح ✅', 'success');
+        }
+
+        function updateGateUI() {
+            let completed = 0;
+            if (channelState.wa) {
+                completed++;
+                const waBox = document.getElementById('wa-step-box');
+                const waBtn = document.getElementById('wa-btn');
+                const waStatus = document.getElementById('wa-status-text');
+                if (waBox) waBox.classList.add('border-emerald-500/70', 'bg-emerald-950/20');
+                if (waStatus) {
+                    waStatus.textContent = 'تم التحقق من الاشتراك ✔';
+                    waStatus.classList.replace('text-slate-400', 'text-emerald-400');
+                }
+                if (waBtn) {
+                    waBtn.innerHTML = '<span>تم الاشتراك</span> <i class="fa-solid fa-check"></i>';
+                    waBtn.className = 'px-3.5 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center gap-1.5 shrink-0';
+                }
+            }
+
+            if (channelState.tg) {
+                completed++;
+                const tgBox = document.getElementById('tg-step-box');
+                const tgBtn = document.getElementById('tg-btn');
+                const tgStatus = document.getElementById('tg-status-text');
+                if (tgBox) tgBox.classList.add('border-sky-500/70', 'bg-sky-950/20');
+                if (tgStatus) {
+                    tgStatus.textContent = 'تم التحقق من الاشتراك ✔';
+                    tgStatus.classList.replace('text-slate-400', 'text-sky-400');
+                }
+                if (tgBtn) {
+                    tgBtn.innerHTML = '<span>تم الاشتراك</span> <i class="fa-solid fa-check"></i>';
+                    tgBtn.className = 'px-3.5 py-2 rounded-xl bg-sky-500/20 border border-sky-500/50 text-sky-300 font-bold text-xs flex items-center gap-1.5 shrink-0';
+                }
+            }
+
+            const progressBar = document.getElementById('gate-progress-bar');
+            const progressLabel = document.getElementById('gate-progress-label');
+            const enterBtn = document.getElementById('enter-site-btn');
+            const enterIcon = document.getElementById('enter-btn-icon');
+            const enterText = document.getElementById('enter-btn-text');
+
+            if (progressBar) progressBar.style.width = `${(completed / 2) * 100}%`;
+            if (progressLabel) progressLabel.textContent = `${completed} / 2 مكتمل`;
+
+            if (completed === 2 && enterBtn) {
+                enterBtn.disabled = false;
+                enterBtn.className = 'w-full py-3.5 px-6 rounded-xl font-black text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-cyber-cyan to-cyber-green text-slate-950 cursor-pointer shadow-xl shadow-cyber-cyan/25 hover:opacity-95';
+                if (enterIcon) enterIcon.className = 'fa-solid fa-unlock';
+                if (enterText) enterText.textContent = 'دخول إلى منصة AB HACKERS الآن';
+            }
+        }
+
+        function unlockWebsite() {
+            if (!channelState.wa || !channelState.tg) {
+                showToast('يرجى الاشتراك في القناتين أولاً للدخول 🔒', 'info');
+                return;
+            }
+            try {
+                localStorage.setItem(GATE_STORAGE_KEY, 'true');
+            } catch (e) {}
+            const gate = document.getElementById('subscription-gate');
+            if (gate) {
+                gate.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => gate.classList.add('hidden'), 300);
+            }
+            showToast('مرحباً بك في منصة AB HACKERS! 🔥', 'success');
+        }
+
+        // --- 2. بيانات ومنطق القسم الأول: الحساسية والبحث عن الهاتف ---
+        const sensitivityData = {
+            low: {
+                name: 'هواتف ضعيفة (2GB - 4GB RAM)',
+                stats: [
+                    { label: 'عام (General)', val: 196, max: 200 },
+                    { label: 'نقطة حمراء (Red Dot)', val: 188, max: 200 },
+                    { label: 'سكوب 2x', val: 182, max: 200 },
+                    { label: 'سكوب 4x', val: 175, max: 200 },
+                    { label: 'سكوب القناصة (Sniper)', val: 110, max: 200 },
+                    { label: 'نظرة حرة (Free Look)', val: 150, max: 200 }
+                ],
+                dpi: '580 DPI',
+                fireBtn: '44%',
+                fps: '60 FPS (ناعم + مرتفع)',
+                tip: 'للهواتف الضعيفة: ارفع الحساسية لأقصى حد مع DPI متوسط 580 لتعويض بطء استجابة الشاشة وتسهيل سحب الهيدشوت.'
+            },
+            mid: {
+                name: 'هواتف متوسطة (6GB - 8GB RAM)',
+                stats: [
+                    { label: 'عام (General)', val: 184, max: 200 },
+                    { label: 'نقطة حمراء (Red Dot)', val: 176, max: 200 },
+                    { label: 'سكوب 2x', val: 168, max: 200 },
+                    { label: 'سكوب 4x', val: 160, max: 200 },
+                    { label: 'سكوب القناصة (Sniper)', val: 95, max: 200 },
+                    { label: 'نظرة حرة (Free Look)', val: 140, max: 200 }
+                ],
+                dpi: '510 DPI',
+                fireBtn: '48%',
+                fps: '60 - 90 FPS (قياسي)',
+                tip: 'توازن مثالي لأسلحة SMG والشوتقن؛ اسحب زر إطلاق النار بسرعة متوسطة وثابتة دون المبالغة في السحب.'
+            },
+            high: {
+                name: 'هواتف قوية / أيفون (12GB+ / iOS)',
+                stats: [
+                    { label: 'عام (General)', val: 165, max: 200 },
+                    { label: 'نقطة حمراء (Red Dot)', val: 158, max: 200 },
+                    { label: 'سكوب 2x', val: 152, max: 200 },
+                    { label: 'سكوب 4x', val: 145, max: 200 },
+                    { label: 'سكوب القناصة (Sniper)', val: 85, max: 200 },
+                    { label: 'نظرة حرة (Free Look)', val: 125, max: 200 }
+                ],
+                dpi: 'الافتراضي (Default)',
+                fireBtn: '52%',
+                fps: '90 - 120 FPS (فائق)',
+                tip: 'الشاشات ذات معدل التحديث العالي (120Hz) لا تحتاج DPI مرتفع؛ حافظ على ثبات الإيم لتجنب تجاوز الرأس.'
+            }
+        };
+
+        const phoneDatabase = [
+            { model: 'Samsung Galaxy A15', general: 192, redDot: 185, s2x: 179, s4x: 172, sniper: 105, freeLook: 145, dpi: '560 DPI', fireBtn: '45%', fps: '60 FPS (ناعم + مرتفع)', tip: 'لسامسونج A15: ارفع زر الضرب بخفة للأعلى مع تفعيل سرعة المؤشر لأقصى حد.' },
+            { model: 'Samsung Galaxy A14 / A13 / A12', general: 197, redDot: 190, s2x: 184, s4x: 178, sniper: 112, freeLook: 152, dpi: '590 DPI', fireBtn: '43%', fps: '60 FPS (ناعم)', tip: 'هواتف سامسونج الاقتصادية تحتاج حساسية مرتفعة جداً لتعويض استجابة اللمس.' },
+            { model: 'Samsung Galaxy A54 / A55', general: 180, redDot: 172, s2x: 165, s4x: 158, sniper: 92, freeLook: 138, dpi: '500 DPI', fireBtn: '49%', fps: '90 FPS (قياسي)', tip: 'شاشة 120Hz في سلسلة A5x تمنحك ثباتاً ممتازاً بأسلحة UMP و M1887.' },
+            { model: 'Samsung Galaxy S23 / S24 Ultra', general: 164, redDot: 156, s2x: 150, s4x: 142, sniper: 84, freeLook: 120, dpi: 'الافتراضي (Default)', fireBtn: '52%', fps: '120 FPS (فائق)', tip: 'لا ترفع الـ DPI في هواتف الفئة الرائدة لتجنب اهتزاز الإيم فوق الرأس.' },
+            { model: 'Redmi Note 13 / 13 Pro', general: 185, redDot: 178, s2x: 170, s4x: 163, sniper: 96, freeLook: 142, dpi: '520 DPI', fireBtn: '47%', fps: '90 FPS (قياسي)', tip: 'فعّل وضع Game Turbo في شاومي وزد حساسية اللمس من الإعدادات الإضافية.' },
+            { model: 'Redmi Note 12 / 11 / 10', general: 191, redDot: 184, s2x: 177, s4x: 170, sniper: 104, freeLook: 148, dpi: '555 DPI', fireBtn: '45%', fps: '60 FPS (ناعم + مرتفع)', tip: 'إعدادات متوازنة لسلسلة ريدمي نوت تضمن ون شوت سريع بالنسر الصحراوي.' },
+            { model: 'Redmi 9 / 9A / 12C / 13C', general: 198, redDot: 192, s2x: 186, s4x: 180, sniper: 115, freeLook: 155, dpi: '600 DPI', fireBtn: '42%', fps: '60 FPS (ناعم)', tip: 'احذف حزم السكنات غير الضرورية للحصول على أقصى سلاسة في الاشتباكات.' },
+            { model: 'Poco X6 Pro / X5 Pro / F5', general: 172, redDot: 165, s2x: 158, s4x: 150, sniper: 88, freeLook: 130, dpi: '480 DPI', fireBtn: '50%', fps: '120 FPS (فائق)', tip: 'أداء جبار في بوكو؛ اسحب زر الضرب بشكل مستقيم وسريع.' },
+            { model: 'iPhone 11 / 12 / 13 / 14 / 15', general: 166, redDot: 159, s2x: 153, s4x: 146, sniper: 85, freeLook: 125, dpi: 'تتبع الرأس (iOS)', fireBtn: '51%', fps: '60 - 120 FPS (فائق)', tip: 'في الآيفون: فعّل التحكم باللمس (Touch Accommodations) للحصول على ثبات هيدشوت خرافي.' },
+            { model: 'iPhone 7 / 8 Plus / X / XR', general: 182, redDot: 175, s2x: 168, s4x: 160, sniper: 95, freeLook: 140, dpi: 'الافتراضي (iOS)', fireBtn: '47%', fps: '60 FPS (قياسي)', tip: 'حافظ على برودة الجهاز أثناء اللعب لضمان عدم هبوط الإطارات.' },
+            { model: 'Infinix Hot 40 Pro / Note 30', general: 189, redDot: 182, s2x: 175, s4x: 168, sniper: 102, freeLook: 146, dpi: '545 DPI', fireBtn: '46%', fps: '60 - 90 FPS', tip: 'فعّل وضع XArena في إنفينيكس لرفع استجابة الشاشة أثناء المواجهات القريبة.' },
+            { model: 'Oppo Reno 11 / A78 / A58', general: 186, redDot: 179, s2x: 172, s4x: 164, sniper: 98, freeLook: 144, dpi: '530 DPI', fireBtn: '47%', fps: '60 - 90 FPS', tip: 'هواتف أوبو تتميز بثبات ممتاز في الرش بالأسلحة الرشاشة مثل MP40.' },
+            { model: 'Realme C55 / C53 / 11 Pro', general: 188, redDot: 181, s2x: 174, s4x: 166, sniper: 100, freeLook: 145, dpi: '540 DPI', fireBtn: '46%', fps: '60 - 90 FPS', tip: 'استخدم سحب زر الضرب على شكل حرف J خفيف للحصول على هيدشوت مستمر.' },
+            { model: 'Huawei Nova 11 / Y9a / P30', general: 187, redDot: 180, s2x: 173, s4x: 165, sniper: 99, freeLook: 143, dpi: '535 DPI', fireBtn: '47%', fps: '60 FPS (قياسي)', tip: 'إعدادات مخصصة لشاشات هواوي تمنحك دقة عالية في المدى المتوسط والبعيد.' },
+            { model: 'Tecno Spark 20 / Pova 5', general: 190, redDot: 183, s2x: 176, s4x: 169, sniper: 103, freeLook: 147, dpi: '550 DPI', fireBtn: '45%', fps: '60 - 90 FPS', tip: 'فعّل وضع Panther Engine في تكنو لتسريع استجابة اللمس.' }
+        ];
+
+        let activeCustomSensitivity = null;
+
+        function renderSensitivityValues(title, stats, dpi, fireBtn, fps, tip) {
+            document.getElementById('active-phone-title').textContent = title;
+            const barsContainer = document.getElementById('sensitivity-bars');
+            barsContainer.innerHTML = stats.map(item => {
+                const percent = Math.round((item.val / item.max) * 100);
+                return `
+                    <div class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs sm:text-sm font-bold text-slate-200">${item.label}</span>
+                            <span class="font-orbitron font-black text-sm text-cyber-cyan">${item.val}</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyber-cyan to-cyber-green rounded-full transition-all duration-500" style="width: ${percent}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('sens-dpi').textContent = dpi;
+            document.getElementById('sens-firebtn').textContent = fireBtn;
+            document.getElementById('sens-fps').textContent = fps;
+            document.getElementById('sens-tip').textContent = tip;
+
+            activeCustomSensitivity = { name: title, stats, dpi, fireBtn };
+        }
+
+        function selectDeviceTier(tier) {
+            const data = sensitivityData[tier];
+            if (!data) return;
+            document.querySelectorAll('.tier-btn').forEach(btn => {
+                btn.className = 'tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-slate-900 text-slate-300 border border-slate-700 transition';
+            });
+            const activeBtn = document.getElementById(`tier-btn-${tier}`);
+            if (activeBtn) {
+                activeBtn.className = 'tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-cyber-cyan text-slate-950 transition shadow-lg shadow-cyber-cyan/20';
+            }
+            renderSensitivityValues(data.name, data.stats, data.dpi, data.fireBtn, data.fps, data.tip);
+        }
+
+        function handlePhoneAutocomplete() {
+            const input = document.getElementById('phone-model-input');
+            const list = document.getElementById('phone-autocomplete-list');
+            const query = input.value.trim().toLowerCase();
+
+            if (!query) {
+                list.classList.add('hidden');
+                return;
+            }
+
+            const matches = phoneDatabase.filter(p => p.model.toLowerCase().includes(query));
+            if (matches.length === 0) {
+                list.innerHTML = `
+                    <button type="button" onclick="searchPhoneSensitivity(false)" class="w-full text-right px-4 py-3 text-xs sm:text-sm text-cyber-green hover:bg-slate-800 font-bold flex items-center justify-between">
+                        <span>توليد حساسية مخصصة لهاتف: "${input.value}"</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </button>
+                `;
+            } else {
+                list.innerHTML = matches.map(p => `
+                    <button type="button" onclick="quickSelectPhone('${p.model}')" class="w-full text-right px-4 py-2.5 text-xs sm:text-sm text-slate-200 hover:bg-slate-800 border-b border-slate-800/70 last:border-0 flex items-center justify-between">
+                        <span class="font-bold">${p.model}</span>
+                        <span class="text-[11px] text-cyber-cyan font-orbitron">${p.dpi}</span>
+                    </button>
+                `).join('');
+            }
+            list.classList.remove('hidden');
+
+            if (query.length >= 3) {
+                searchPhoneSensitivity(true);
+            }
+        }
+
+        function quickSelectPhone(modelName) {
+            document.getElementById('phone-model-input').value = modelName;
+            document.getElementById('phone-autocomplete-list').classList.add('hidden');
+            searchPhoneSensitivity(false);
+        }
+
+        function searchPhoneSensitivity(silent = false) {
+            const input = document.getElementById('phone-model-input');
+            const rawQuery = input ? input.value.trim() : '';
+            const list = document.getElementById('phone-autocomplete-list');
+            if (list) list.classList.add('hidden');
+
+            if (!rawQuery) {
+                if (!silent) {
+                    showToast('يرجى كتابة اسم أو نوع الهاتف أولاً 📱', 'info');
+                    if (input) input.focus();
+                }
+                return;
+            }
+
+            const q = rawQuery.toLowerCase();
+            let found = phoneDatabase.find(p => p.model.toLowerCase().includes(q) || q.includes(p.model.toLowerCase().split(' ')[0]));
+
+            if (!found) {
+                let hash = 0;
+                for (let i = 0; i < q.length; i++) {
+                    hash = ((hash << 5) - hash) + q.charCodeAt(i);
+                    hash |= 0;
+                }
+                const offset = Math.abs(hash) % 12;
+                const isIphone = q.includes('iphone') || q.includes('ios') || q.includes('ipad');
+                const isFlagship = isIphone || q.includes('ultra') || q.includes('pro') || q.includes('rog') || q.includes('poco f') || q.includes('s2');
+
+                const baseGen = isFlagship ? (168 + (offset % 8)) : (186 + offset);
+                found = {
+                    model: rawQuery.toUpperCase(),
+                    general: Math.min(200, baseGen),
+                    redDot: Math.min(200, baseGen - 7),
+                    s2x: Math.min(200, baseGen - 13),
+                    s4x: Math.min(200, baseGen - 20),
+                    sniper: isFlagship ? 88 : (98 + (offset % 10)),
+                    freeLook: isFlagship ? 128 : (142 + (offset % 10)),
+                    dpi: isIphone ? 'الافتراضي (iOS)' : (isFlagship ? '490 DPI' : `${530 + (offset * 5)} DPI`),
+                    fireBtn: isFlagship ? '50%' : `${44 + (offset % 5)}%`,
+                    fps: isFlagship ? '90 - 120 FPS (فائق)' : '60 FPS (ناعم + مرتفع)',
+                    tip: `تمت معايرة هذه القيم خصيصاً لشاشة ومعالج هاتف ${rawQuery} لضمان ثبات الإيم وسهولة سحب الهيدشوت.`
+                };
+            }
+
+            document.querySelectorAll('.tier-btn').forEach(btn => {
+                btn.className = 'tier-btn px-3 py-2 rounded-xl font-bold text-xs bg-slate-900 text-slate-300 border border-slate-700 transition';
+            });
+
+            const customStats = [
+                { label: 'عام (General)', val: found.general, max: 200 },
+                { label: 'نقطة حمراء (Red Dot)', val: found.redDot, max: 200 },
+                { label: 'سكوب 2x', val: found.s2x, max: 200 },
+                { label: 'سكوب 4x', val: found.s4x, max: 200 },
+                { label: 'سكوب القناصة (Sniper)', val: found.sniper, max: 200 },
+                { label: 'نظرة حرة (Free Look)', val: found.freeLook, max: 200 }
+            ];
+
+            renderSensitivityValues(`📱 ${found.model}`, customStats, found.dpi, found.fireBtn, found.fps, found.tip);
+
+            const resultCard = document.getElementById('sensitivity-result-card');
+            if (resultCard && !silent) {
+                resultCard.classList.add('ring-2', 'ring-cyber-green');
+                resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                setTimeout(() => resultCard.classList.remove('ring-2', 'ring-cyber-green'), 1200);
+                showToast(`تم استخراج إعدادات الهيدشوت لهاتف ${found.model} 🎯`, 'success');
+            }
+        }
+
+        function copySensitivitySettings() {
+            const data = activeCustomSensitivity;
+            if (!data) return;
+            const textToCopy = `🔥 إعدادات AB HACKERS (${data.name}) 🔥\n` +
+                data.stats.map(s => `- ${s.label}: ${s.val}`).join('\n') +
+                `\n- DPI: ${data.dpi}\n- زر الضرب: ${data.fireBtn}\nمنصة AB HACKERS`;
+
+            const tempArea = document.createElement('textarea');
+            tempArea.value = textToCopy;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('تم نسخ إعدادات الحساسية إلى الحافظة 📋', 'success');
+            } catch (err) {
+                showToast('تعذر النسخ التلقائي، يرجى النسخ يدوياً', 'info');
+            }
+            document.body.removeChild(tempArea);
+        }
+
+        // --- 3. بيانات ومنطق القسم الثاني: تخطيطات التحكم Custom HUD ---
+        const hudLayouts = {
+            '2f': {
+                visual: `
+                    <div class="w-full h-full flex items-end justify-between p-2">
+                        <div class="w-16 h-16 rounded-full border-2 border-cyber-cyan/60 bg-cyber-cyan/10 flex items-center justify-center text-[11px] font-bold text-cyber-cyan">حركة</div>
+                        <div class="flex flex-col items-end gap-2">
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1.5 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">قفز</span>
+                                <span class="px-2.5 py-1.5 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">جلوس</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-11 h-11 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-[10px] font-bold text-emerald-300">ثلج</span>
+                                <span class="w-14 h-14 rounded-full bg-rose-500/30 border-2 border-rose-500 flex items-center justify-center text-xs font-black text-white">ضرب 46%</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                text: 'تخطيط الإصبعين الكلاسيكي: ضع زر جدار الثلج بجانب زر القفز مباشرة لتسهيل وضعه بسرعة بعد إطلاق النار.'
+            },
+            '3f': {
+                visual: `
+                    <div class="w-full h-full flex flex-col justify-between p-2">
+                        <div class="flex justify-start">
+                            <span class="px-3 py-2 rounded-full bg-cyber-green/20 border-2 border-cyber-green text-xs font-black text-cyber-green">زر الثلج + الضرب الأيسر (سبابة اليسار)</span>
+                        </div>
+                        <div class="flex items-end justify-between">
+                            <div class="w-14 h-14 rounded-full border-2 border-cyber-cyan/60 bg-cyber-cyan/10 flex items-center justify-center text-[11px] font-bold text-cyber-cyan">حركة</div>
+                            <div class="flex items-center gap-2.5">
+                                <span class="px-2.5 py-2 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">جلوس</span>
+                                <span class="px-2.5 py-2 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">قفز</span>
+                                <span class="w-14 h-14 rounded-full bg-rose-500/30 border-2 border-rose-500 flex items-center justify-center text-xs font-black text-white">ضرب</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                text: 'تخطيط 3 أصابع الاحترافي: انقل زر جدار الثلج وزر إطلاق النار الأيسر إلى أعلى يسار الشاشة للتحكم بهما بالسبابة وتنفيذ ثلجة الجلوس بسرعة فائقة.'
+            },
+            '4f': {
+                visual: `
+                    <div class="w-full h-full flex flex-col justify-between p-2">
+                        <div class="flex justify-between">
+                            <span class="px-2.5 py-1.5 rounded-full bg-cyber-green/20 border border-cyber-green text-[11px] font-bold text-cyber-green">ثلج + ضرب أيسر</span>
+                            <span class="px-2.5 py-1.5 rounded-full bg-cyber-gold/20 border border-cyber-gold text-[11px] font-bold text-cyber-gold">تبديل السلاح + سكوب</span>
+                        </div>
+                        <div class="flex items-end justify-between">
+                            <div class="w-14 h-14 rounded-full border-2 border-cyber-cyan/60 bg-cyber-cyan/10 flex items-center justify-center text-[11px] font-bold text-cyber-cyan">حركة</div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-1.5 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">جلوس</span>
+                                <span class="px-2.5 py-1.5 rounded-full bg-slate-800 border border-slate-600 text-[10px] text-white">قفز</span>
+                                <span class="w-13 h-13 p-3 rounded-full bg-rose-500/30 border-2 border-rose-500 flex items-center justify-center text-xs font-black text-white">ضرب</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                text: 'تخطيط 4 أصابع (Claw): يمنحك سرعة خارقة في تبديل السلاح السريع (Quick Weapon Switch) والقنص المزدوج دون توقف الحركة.'
+            }
+        };
+
+        function selectHud(key) {
+            document.querySelectorAll('.hud-btn').forEach(btn => {
+                btn.className = 'hud-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition';
+            });
+            const active = document.getElementById(`hud-btn-${key}`);
+            if (active) {
+                active.className = 'hud-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-cyber-cyan/20 text-cyber-cyan border border-cyber-cyan/50 transition';
+            }
+            const layout = hudLayouts[key];
+            if (layout) {
+                document.getElementById('hud-visual-overlay').innerHTML = layout.visual;
+                document.getElementById('hud-details').innerHTML = `<p class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">${layout.text}</p>`;
+            }
+        }
+
+        function searchHudLayouts() {
+            const q = document.getElementById('hud-search-input').value.trim().toLowerCase();
+            if (!q) return;
+            if (q.includes('4') || q.includes('اربع') || q.includes('أربع') || q.includes('قناص') || q.includes('ون شوت')) {
+                selectHud('4f');
+            } else if (q.includes('3') || q.includes('ثلاث') || q.includes('ثلج') || q.includes('جلوس')) {
+                selectHud('3f');
+            } else if (q.includes('2') || q.includes('اصبعين') || q.includes('إصبعين') || q.includes('مبتدئ')) {
+                selectHud('2f');
+            }
+        }
+
+        // --- 4. بيانات ومنطق القسم الثالث: دمج الشخصيات وصورها ---
+        function getCharacterAvatarSVG(key, bg1 = '#0f172a', bg2 = '#059669', badgeIcon = '⚡') {
+            const avatars = {
+                tatsuya: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-tat" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f43f5e"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-tat)"/><circle cx="50" cy="40" r="18" fill="#fed7aa"/><path d="M30 36 C32 16, 68 16, 70 36 L65 28 L50 32 L35 28 Z" fill="#1e293b"/><path d="M22 92 C24 68, 76 68, 78 92 Z" fill="#0f172a"/><path d="M36 42 L46 44 M54 44 L64 42" stroke="#0f172a" stroke-width="2.5"/><path d="M15 22 L32 30 M85 22 L68 30" stroke="#fef08a" stroke-width="3" stroke-linecap="round"/></svg>`,
+                alok: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-alok" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-alok)"/><circle cx="50" cy="42" r="18" fill="#d97706"/><path d="M32 35 C35 20, 65 20, 68 35 Z" fill="#0f172a"/><rect x="35" y="37" width="13" height="7" rx="2" fill="#00f0ff"/><rect x="52" y="37" width="13" height="7" rx="2" fill="#00f0ff"/><path d="M28 40 V28 C28 15, 72 15, 72 28 V40" stroke="#f8fafc" stroke-width="5" fill="none"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#111827"/></svg>`,
+                orion: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-ori" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7f1d1d"/><stop offset="100%" stop-color="#dc2626"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-ori)"/><circle cx="50" cy="42" r="18" fill="#fdba74"/><path d="M31 38 C32 18, 68 18, 69 38 L62 30 L50 35 L38 30 Z" fill="#f8fafc"/><circle cx="43" cy="42" r="2.5" fill="#ef4444"/><circle cx="57" cy="42" r="2.5" fill="#ef4444"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#18181b"/><circle cx="50" cy="50" r="42" stroke="#fca5a5" stroke-width="2" stroke-dasharray="8 6" fill="none"/></svg>`,
+                sonia: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-son" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-son)"/><path d="M28 38 C28 16, 72 16, 72 38 L76 62 L24 62 Z" fill="#e0f2fe"/><circle cx="50" cy="42" r="16" fill="#ffedd5"/><rect x="35" y="38" width="30" height="6" rx="3" fill="#00f0ff" opacity="0.85"/><path d="M24 92 C28 68, 72 68, 76 92 Z" fill="#0f172a"/></svg>`,
+                k: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-k" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#b45309"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-k)"/><circle cx="50" cy="42" r="18" fill="#fed7aa"/><path d="M32 36 C34 20, 66 20, 68 36 Z" fill="#1e293b"/><path d="M38 52 Q50 58 62 52" stroke="#1e293b" stroke-width="3" fill="none"/><path d="M22 92 C24 66, 76 66, 78 92 Z" fill="#7c2d12"/><text x="50" y="84" text-anchor="middle" fill="#fde047" font-family="Orbitron" font-weight="900" font-size="16">EP+</text></svg>`,
+                kelly: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-kel" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#eab308"/><stop offset="100%" stop-color="#f97316"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-kel)"/><path d="M30 38 C30 18, 70 18, 70 38 L74 56 L26 56 Z" fill="#451a03"/><circle cx="50" cy="42" r="16" fill="#ffedd5"/><path d="M24 92 C26 68, 74 68, 76 92 Z" fill="#facc15"/><path d="M44 72 L56 72 L48 86" stroke="#0f172a" stroke-width="3" fill="none"/></svg>`,
+                hayato: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-hay" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#0f172a"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-hay)"/><circle cx="50" cy="42" r="18" fill="#fed7aa"/><path d="M30 38 C32 16, 68 16, 70 38 L66 52 L34 52 Z" fill="#e2e8f0"/><path d="M34 33 H66" stroke="#ef4444" stroke-width="4"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#1e3a8a"/></svg>`,
+                moco: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-moc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-moc)"/><path d="M30 38 C30 18, 70 18, 70 38 L72 58 L28 58 Z" fill="#10b981"/><circle cx="50" cy="42" r="16" fill="#ffedd5"/><circle cx="43" cy="42" r="2.5" fill="#06b6d4"/><circle cx="57" cy="42" r="2.5" fill="#06b6d4"/><path d="M24 92 C26 68, 74 68, 76 92 Z" fill="#064e3b"/></svg>`,
+                chrono: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-chr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#1e1b4b"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-chr)"/><circle cx="50" cy="42" r="18" fill="#fed7aa"/><path d="M32 34 C35 18, 65 18, 68 34 L62 26 L50 30 L38 26 Z" fill="#0f172a"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#0369a1"/><circle cx="50" cy="50" r="43" stroke="#00f0ff" stroke-width="2.5" fill="none"/></svg>`,
+                rafael: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-raf" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-raf)"/><circle cx="50" cy="42" r="18" fill="#fdba74"/><path d="M32 34 C34 18, 66 18, 68 34 Z" fill="#f8fafc"/><path d="M34 46 H66 V58 H34 Z" fill="#1e293b"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#090d16"/></svg>`,
+                homer: `<svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="g-hom" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect width="100" height="100" fill="url(#g-hom)"/><circle cx="50" cy="42" r="18" fill="#fed7aa"/><path d="M31 36 C33 18, 67 18, 69 36 Z" fill="#cbd5e1"/><rect x="33" y="37" width="34" height="8" rx="3" fill="#0f172a"/><path d="M22 92 C25 68, 75 68, 78 92 Z" fill="#1e1b4b"/></svg>`
+            };
+            return avatars[key] || `<svg viewBox="0 0 100 100" class="w-full h-full"><rect width="100" height="100" fill="${bg1}"/><circle cx="50" cy="40" r="18" fill="#fed7aa"/><path d="M24 92 C26 68, 74 68, 76 92 Z" fill="${bg2}"/><text x="50" y="84" text-anchor="middle" fill="#fff" font-size="18">${badgeIcon}</text></svg>`;
+        }
+
+        const characterCombos = [
+            {
+                category: 'rush',
+                avatarKey: 'tatsuya',
+                badge: 'هجوم سريع (Clash Squad)',
+                badgeColor: 'text-rose-400 bg-rose-500/10 border-rose-500/30',
+                title: 'تشكيلة الاقتحام الخاطف',
+                active: 'تاتسويا (Tatsuya) - اندفاع سريع مرتين',
+                passives: ['هاياتو (اختراق دروع)', 'كيلي (سرعة الحركة)', 'سونيا (درع النجاة 3 ثوانٍ)'],
+                pet: 'النسر (Falco) أو باندا (Detective Panda)',
+                desc: 'مثالية للاشتباكات القريبة في كلاش سكواد لمباغتة الخصم وتجاوز دروعه بسرعة.'
+            },
+            {
+                category: 'survival',
+                avatarKey: 'k',
+                badge: 'البقاء والصمود (BR Ranked)',
+                badgeColor: 'text-cyber-cyan bg-cyan-500/10 border-cyan-500/30',
+                title: 'تشكيلة الجراند ماستر والزون',
+                active: 'الكابتن K - تحويل EP إلى HP باستمرار',
+                passives: ['ماكسيم (سرعة الفطر والعلاج)', 'فورد (مقاومة ضرر الزون)', 'موكو (تحديد مكان العدو)'],
+                pet: 'السيد واجور (Mr. Waggor) لإنتاج الثلج',
+                desc: 'تمنحك صحة مستمرة وقدرة عالية على الصمود داخل الزون الأخير دون نفاد الموارد.'
+            },
+            {
+                category: 'sniper',
+                avatarKey: 'alok',
+                badge: 'القنص والدعم البعيد',
+                badgeColor: 'text-cyber-gold bg-amber-500/10 border-amber-500/30',
+                title: 'تشكيلة الصياد الصامت',
+                active: 'ألوك (DJ Alok) - سرعة وعلاج للفريق',
+                passives: ['رافاييل (كاتم صوت للقناصات)', 'مارو (زيادة الضرر مع المسافة)', 'موكو (كشف الخصم بعد الإصابة)'],
+                pet: 'روكي (Rockie) لتقليل وقت شحن المهارة',
+                desc: 'تحول أي سلاح قناص أو ماركسمان إلى سلاح صامت يطيح بالخصوم بضربة واحدة من بعيد.'
+            },
+            {
+                category: 'rush',
+                avatarKey: 'orion',
+                badge: 'هجوم سريع (1v4 Clutch)',
+                badgeColor: 'text-rose-400 bg-rose-500/10 border-rose-500/30',
+                title: 'تشكيلة مصاص الدماء أوريون',
+                active: 'أوريون (Orion) - حصانة كاملة وامتصاص HP',
+                passives: ['ميغيل (الحصول على EP عند الإسقاط)', 'جوتا (استعادة صحة فورية)', 'كارولين (سرعة بالشوتقن)'],
+                pet: 'أوتيرو (Ottero) لزيادة EP عند العلاج',
+                desc: 'تشكيلة مرعبة لمواجهة أكثر من خصم في نفس الوقت بفضل تجدد الطاقة المستمر.'
+            },
+            {
+                category: 'survival',
+                avatarKey: 'chrono',
+                badge: 'البقاء والدفاع التكتيكي',
+                badgeColor: 'text-cyber-cyan bg-cyan-500/10 border-cyan-500/30',
+                title: 'تشكيلة حصن الثلج الفولاذي',
+                active: 'كرونو (Chrono) - قبة الحماية الفورية',
+                passives: ['نايري (تقوية جدار الثلج واستعادة متانته)', 'أندرو (تقليل تلف الدرع)', 'ليون (علاج بعد الاشتباك)'],
+                pet: 'روبو (Robo) لإضافة درع فوق جدار الثلج',
+                desc: 'تجعل جدران الثلج الخاصة بك شبه غير قابلة للكسر في الدوائر النهائية.'
+            },
+            {
+                category: 'sniper',
+                avatarKey: 'homer',
+                badge: 'دعم الفريق والقنابل',
+                badgeColor: 'text-cyber-gold bg-amber-500/10 border-amber-500/30',
+                title: 'تشكيلة المفجر التكتيكي',
+                active: 'هومر (Homer) - طائرة درون تبطئ الأعداء',
+                passives: ['ألفارو (زيادة ضرر القنابل 20%)', 'أوثو (كشف أماكن الفريق المعادي)', 'كيلي (سرعة التحرك)'],
+                pet: 'بيستون (Beaston) لزيادة مسافة رمي القنابل',
+                desc: 'مثالية لتفكيك تجمعات الخصوم خلف الثلج باستخدام القنابل الموقوتة بدقة.'
+            }
+        ];
+
+        function filterCombos(filter) {
+            document.querySelectorAll('.combo-filter-btn').forEach(btn => {
+                btn.className = 'combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-green transition';
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.className = 'combo-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-green text-slate-950 transition';
+                }
+            });
+            renderCombos(filter);
+        }
+
+        function renderCombos(filter) {
+            const grid = document.getElementById('combos-grid');
+            const filtered = filter === 'all' ? characterCombos : characterCombos.filter(c => c.category === filter);
+
+            grid.innerHTML = filtered.map(combo => `
+                <div class="bg-cyber-card border border-slate-800 hover:border-cyber-green/60 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold border ${combo.badgeColor}">
+                                ${combo.badge}
+                            </span>
+                            <i class="fa-solid fa-fire text-slate-600 group-hover:text-cyber-green transition"></i>
+                        </div>
+
+                        <div class="flex items-center gap-3.5 mb-3">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-cyber-green/60 shadow-lg shrink-0">
+                                ${getCharacterAvatarSVG(combo.avatarKey)}
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-black text-white leading-snug">${combo.title}</h3>
+                                <span class="text-[11px] text-cyber-green font-bold">الشخصية القائدة للتشكيلة</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-900/90 border border-cyber-green/30 mb-3">
+                            <span class="text-[11px] text-cyber-green font-bold block mb-0.5">المهارة النشطة (Active):</span>
+                            <span class="text-xs sm:text-sm font-bold text-white">${combo.active}</span>
+                        </div>
+
+                        <div class="space-y-1.5 mb-3">
+                            <span class="text-[11px] text-slate-400 font-bold block">المهارات السلبية (3 Passive):</span>
+                            ${combo.passives.map(p => `
+                                <div class="text-xs text-slate-200 bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-cyber-cyan text-[10px]"></i>
+                                    <span>${p}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800/80 space-y-2">
+                        <div class="text-xs text-cyber-gold font-semibold flex items-center gap-1.5">
+                            <i class="fa-solid fa-paw"></i>
+                            <span>الحيوان الأليف: ${combo.pet}</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">${combo.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const tierCharactersData = {
+            s: [
+                { key: 'tatsuya', name: 'تاتسويا (Tatsuya)', role: 'اندفاع سريع', border: 'border-amber-500/50' },
+                { key: 'orion', name: 'أوريون (Orion)', role: 'حصانة وامتصاص', border: 'border-amber-500/50' },
+                { key: 'sonia', name: 'سونيا (Sonia)', role: 'درع النجاة', border: 'border-amber-500/50' },
+                { key: 'alok', name: 'ألوك (DJ Alok)', role: 'سرعة وعلاج', border: 'border-amber-500/50' },
+                { key: 'moco', name: 'موكو (Moco)', role: 'كشف الأعداء', border: 'border-amber-500/50' }
+            ],
+            a: [
+                { key: 'kelly', name: 'كيلي (Kelly)', role: 'سرعة الجري', border: 'border-cyan-500/50' },
+                { key: 'hayato', name: 'هاياتو (Hayato)', role: 'اختراق الدروع', border: 'border-cyan-500/50' },
+                { key: 'k', name: 'الكابتن K', role: 'طاقة EP مستمرة', border: 'border-cyan-500/50' },
+                { key: 'chrono', name: 'كرونو (Chrono)', role: 'قبة الحماية', border: 'border-cyan-500/50' },
+                { key: 'homer', name: 'هومر (Homer)', role: 'درون التبطيء', border: 'border-cyan-500/50' }
+            ],
+            b: [
+                { key: 'rafael', name: 'رافاييل (Rafael)', role: 'كاتم للقناصات', border: 'border-emerald-500/50' },
+                { key: 'alvaro', name: 'ألفارو (Alvaro)', role: 'ضرر القنابل', border: 'border-emerald-500/50', bg1: '#b91c1c', bg2: '#f59e0b', icon: '💣' },
+                { key: 'leon', name: 'ليون (Leon)', role: 'علاج بعد الاشتباك', border: 'border-emerald-500/50', bg1: '#0284c7', bg2: '#10b981', icon: '🩹' },
+                { key: 'maxim', name: 'ماكسيم (Maxim)', role: 'سرعة العلاج والفطر', border: 'border-emerald-500/50', bg1: '#6d28d9', bg2: '#ec4899', icon: '🍄' }
+            ]
+        };
+
+        function renderCharacterTierList() {
+            const renderCard = (c) => `
+                <div class="tier-char p-2.5 rounded-xl bg-slate-950 border ${c.border} flex items-center gap-2.5">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 shrink-0">
+                        ${getCharacterAvatarSVG(c.key, c.bg1, c.bg2, c.icon)}
+                    </div>
+                    <div class="min-w-0">
+                        <span class="font-bold text-white text-xs block truncate">${c.name}</span>
+                        <span class="text-[11px] text-slate-400 block truncate">${c.role}</span>
+                    </div>
+                </div>
+            `;
+            document.getElementById('tier-s-list').innerHTML = tierCharactersData.s.map(renderCard).join('');
+            document.getElementById('tier-a-list').innerHTML = tierCharactersData.a.map(renderCard).join('');
+            document.getElementById('tier-b-list').innerHTML = tierCharactersData.b.map(renderCard).join('');
+        }
+
+        function filterTierList() {
+            const query = document.getElementById('char-search').value.toLowerCase().trim();
+            document.querySelectorAll('.tier-char').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        // --- 5. بيانات ومنطق القسم الرابع: دليل ومقارنة الأسلحة ---
+        const allWeaponsList = [
+            {
+                name: 'MP40 (الكوبرا)',
+                tag: 'ملك المسافات القريبة جداً • SMG',
+                stats: { damage: 48, rate: 95, range: 28, armor: 35 },
+                bestFor: 'الاشتباكات الملاصقة وسرعة إسقاط الخصم بفضل معدل إطلاق النار الجنوني.'
+            },
+            {
+                name: 'UMP (المتوازن)',
+                tag: 'اختراق الدروع والمدى المتوسط • SMG',
+                stats: { damage: 52, rate: 78, range: 54, armor: 72 },
+                bestFor: 'تدمير الخوذات والدروع من مستوى 3 و 4 وسهولة سحب الهيدشوت في كلاش سكواد.'
+            },
+            {
+                name: 'M1887 (الشوتقن الثنائي)',
+                tag: 'ملك الون شوت (One-Shot) • Shotgun',
+                stats: { damage: 100, rate: 42, range: 24, armor: 65 },
+                bestFor: 'إسقاط الخصم بطلقة واحدة في الرأس مع سرعة حركة عالية، لكن يتطلب دقة بسبب طلقتين فقط.'
+            },
+            {
+                name: 'Trogon (تروغون)',
+                tag: 'قوة نارية متعددة الأوضاع • Shotgun',
+                stats: { damage: 92, rate: 55, range: 32, armor: 58 },
+                bestFor: 'إطلاق 3 طلقات متتالية مدمرة مع وضع قاذف قنابل إضافي لكسر ثلج الخصم.'
+            },
+            {
+                name: 'Woodpecker (نقار الخشب)',
+                tag: 'دقة هيدشوت خرافية • Marksman',
+                stats: { damage: 85, rate: 48, range: 78, armor: 82 },
+                bestFor: 'طلقات فردية عالية الضرر تخترق الخوذة بسهولة وتقضي على الخصم بطلقتين.'
+            },
+            {
+                name: 'AC80',
+                tag: 'ضرر مضاعف في الطلقة الثانية • Marksman',
+                stats: { damage: 82, rate: 45, range: 82, armor: 76 },
+                bestFor: 'إصابة الخصم بطلقتين متتاليتين حيث تسبب الطلقة الثانية ضرراً إضافياً قاتلاً.'
+            },
+            {
+                name: 'AWM (قناصة الدروب)',
+                tag: 'أقوى سلاح قنص بعيد المدى • Sniper',
+                stats: { damage: 98, rate: 28, range: 98, armor: 85 },
+                bestFor: 'القضاء على الأعداء من مسافات بعيدة جداً بطلقة واحدة في الرأس.'
+            },
+            {
+                name: 'M1014-III (شوتقن الطلقات المتتالية)',
+                tag: 'سيطرة كاملة في المسافات الضيقة • Shotgun',
+                stats: { damage: 88, rate: 52, range: 22, armor: 60 },
+                bestFor: 'الاشتباكات المستمرة داخل المنازل دون الحاجة لإعادة التلقيم السريع.'
+            }
+        ];
+
+        const weaponMatchups = {
+            smg: [allWeaponsList[0], allWeaponsList[1]],
+            sg: [allWeaponsList[2], allWeaponsList[3]],
+            ar: [allWeaponsList[4], allWeaponsList[5]]
+        };
+
+        function renderWeaponCards(list) {
+            const area = document.getElementById('weapon-comparison-area');
+            if (!list || list.length === 0) {
+                area.innerHTML = `<div class="col-span-2 text-center py-8 text-slate-400 text-sm">لم يتم العثور على سلاح بهذا الاسم. جرب: MP40, UMP, M1887, AWM</div>`;
+                return;
+            }
+            area.innerHTML = list.map((w, idx) => `
+                <div class="bg-slate-900/90 border ${idx % 2 === 0 ? 'border-cyber-cyan/40' : 'border-cyber-gold/40'} rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xl font-black text-white font-orbitron">${w.name}</h4>
+                            <span class="text-xs ${idx % 2 === 0 ? 'text-cyber-cyan' : 'text-cyber-gold'} font-bold">${w.tag}</span>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-slate-800 flex items-center justify-center text-lg ${idx % 2 === 0 ? 'text-cyber-cyan' : 'text-cyber-gold'}">
+                            <i class="fa-solid fa-gun"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2.5 text-xs">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">الضرر (Damage)</span><span class="font-bold text-white">${w.stats.damage}</span></div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:${w.stats.damage}%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">سرعة الإطلاق (Rate of Fire)</span><span class="font-bold text-white">${w.stats.rate}</span></div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-cyber-cyan rounded-full" style="width:${w.stats.rate}%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">المدى (Range)</span><span class="font-bold text-white">${w.stats.range}</span></div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-cyber-green rounded-full" style="width:${w.stats.range}%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">اختراق الدروع (Armor Penetration)</span><span class="font-bold text-white">${w.stats.armor}</span></div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-cyber-gold rounded-full" style="width:${w.stats.armor}%"></div></div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-300 bg-slate-950/70 p-3 rounded-xl border border-slate-800 leading-relaxed">
+                        <strong class="text-white">متى تختاره؟</strong> ${w.bestFor}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        function searchWeapons() {
+            const q = document.getElementById('weapon-search-input').value.trim().toLowerCase();
+            if (!q) {
+                selectWeaponMatchup('smg');
+                return;
+            }
+            document.querySelectorAll('.wp-btn').forEach(btn => {
+                btn.className = 'wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-gold transition';
+            });
+            const matches = allWeaponsList.filter(w =>
+                w.name.toLowerCase().includes(q) ||
+                w.tag.toLowerCase().includes(q) ||
+                w.bestFor.toLowerCase().includes(q)
+            );
+            renderWeaponCards(matches);
+        }
+
+        function selectWeaponMatchup(key) {
+            const searchInput = document.getElementById('weapon-search-input');
+            if (searchInput) searchInput.value = '';
+            document.querySelectorAll('.wp-btn').forEach(btn => {
+                btn.className = 'wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyber-gold transition';
+            });
+            const active = document.getElementById(`wp-btn-${key}`);
+            if (active) active.className = 'wp-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-gold text-slate-950 transition';
+            renderWeaponCards(weaponMatchups[key]);
+        }
+
+        // --- 6. بيانات ومنطق القسم الخامس: الخرائط ---
+        const mapsData = {
+            bermuda: {
+                hot: {
+                    zones: 'Peak (القمة) • Clock Tower • Pochinok',
+                    desc: 'مناطق ذات لوت عالي جداً واشتباكات فورية منذ الثانية الأولى؛ مثالية لجمع النقاط من القتلات (Kills).'
+                },
+                safe: {
+                    zones: 'Mars Electric • Rim Nam Village • Sentosa',
+                    desc: 'مناطق هادئة على أطراف الخريطة توفر عتاداً كاملاً وتسمح لك برفع الرانك بأمان حتى الزون الثالث.'
+                }
+            },
+            purgatory: {
+                hot: {
+                    zones: 'Brasilia • Central • Fields',
+                    desc: 'قلب الخريطة حيث تتركز أقوى الأسلحة ووسائل النقل، تتطلب فريقاً متفاهماً للسيطرة على المرتفعات.'
+                },
+                safe: {
+                    zones: 'Moathouse • Ski Lodge • Quarry',
+                    desc: 'مناطق معزولة نسبياً مثالية للاعبين الفرديين (Solo) لتجميع الثلج والدروع قبل التحرك.'
+                }
+            },
+            nexterra: {
+                hot: {
+                    zones: 'Intellect Center • Zipway • Mud Site',
+                    desc: 'مناطق غنية ببوابات الانتقال السريع واللوت الذهبي؛ مناسبة للعب السريع والمباغتة.'
+                },
+                safe: {
+                    zones: 'Twin Bridge • Farmtopia • Mortar Ruins',
+                    desc: 'مساحات مفتوحة تمنحك رؤية واضحة للخصوم القادمين مع موارد كافية لبداية آمنة.'
+                }
+            }
+        };
+
+        function selectMap(mapKey) {
+            const mapInput = document.getElementById('map-search-input');
+            if (mapInput) mapInput.value = '';
+            document.querySelectorAll('.map-btn').forEach(btn => {
+                btn.className = 'map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 transition';
+            });
+            const active = document.getElementById(`map-btn-${mapKey}`);
+            if (active) active.className = 'map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyber-cyan text-slate-950 transition';
+
+            const info = mapsData[mapKey];
+            if (!info) return;
+            document.getElementById('map-zones-content').innerHTML = `
+                <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/40">
+                    <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <span>مناطق اللوت القوي والاشتباكات (Hot Drops)</span>
+                    </div>
+                    <div class="font-orbitron font-bold text-white text-sm mb-1.5">${info.hot.zones}</div>
+                    <p class="text-xs text-slate-300 leading-relaxed">${info.hot.desc}</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-1">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>مناطق آمنة لرفع الرانك (Safe Rank-Push)</span>
+                    </div>
+                    <div class="font-orbitron font-bold text-white text-sm mb-1.5">${info.safe.zones}</div>
+                    <p class="text-xs text-slate-300 leading-relaxed">${info.safe.desc}</p>
+                </div>
+            `;
+        }
+
+        function searchMapsAndZones() {
+            const q = document.getElementById('map-search-input').value.trim().toLowerCase();
+            if (!q) {
+                selectMap('bermuda');
+                return;
+            }
+            document.querySelectorAll('.map-btn').forEach(btn => {
+                btn.className = 'map-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-slate-300 border border-slate-700 transition';
+            });
+
+            const mapNames = { bermuda: 'خريطة برمودا (Bermuda)', purgatory: 'خريطة برغاتوري (Purgatory)', nexterra: 'خريطة نيكستيرا (Nexterra)' };
+            let resultsHTML = '';
+
+            Object.keys(mapsData).forEach(key => {
+                const m = mapsData[key];
+                const title = mapNames[key];
+                if (title.toLowerCase().includes(q) || m.hot.zones.toLowerCase().includes(q) || m.hot.desc.toLowerCase().includes(q) || q.includes('لوت') || q.includes('اشتباك')) {
+                    resultsHTML += `
+                        <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/40">
+                            <div class="flex items-center justify-between text-rose-400 font-bold text-sm mb-1">
+                                <span><i class="fa-solid fa-fire-flame-curved ml-1"></i> ${title} — مناطق Hot Drops</span>
+                            </div>
+                            <div class="font-orbitron font-bold text-white text-sm mb-1.5">${m.hot.zones}</div>
+                            <p class="text-xs text-slate-300 leading-relaxed">${m.hot.desc}</p>
+                        </div>
+                    `;
+                }
+                if (title.toLowerCase().includes(q) || m.safe.zones.toLowerCase().includes(q) || m.safe.desc.toLowerCase().includes(q) || q.includes('آمن') || q.includes('رانك')) {
+                    resultsHTML += `
+                        <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40">
+                            <div class="flex items-center justify-between text-emerald-400 font-bold text-sm mb-1">
+                                <span><i class="fa-solid fa-shield-halved ml-1"></i> ${title} — مناطق آمنة للرانك</span>
+                            </div>
+                            <div class="font-orbitron font-bold text-white text-sm mb-1.5">${m.safe.zones}</div>
+                            <p class="text-xs text-slate-300 leading-relaxed">${m.safe.desc}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById('map-zones-content').innerHTML = resultsHTML || `<div class="text-center py-6 text-slate-400 text-sm">لا توجد نتائج مطابقة لبحثك في الخرائط.</div>`;
+        }
+
+        function searchGlooAndFps() {
+            const q = document.getElementById('gloo-search-input').value.trim().toLowerCase();
+            document.querySelectorAll('.gloo-searchable-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(q) ? '' : 'none';
+            });
+        }
+
+        // --- 7. نظام الإشعارات (Toast) ---
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            const borderClass = type === 'success' ? 'border-emerald-500 text-emerald-300' : 'border-cyber-cyan text-cyber-cyan';
+
+            toast.className = `pointer-events-auto px-4 py-3 rounded-xl bg-slate-900/95 backdrop-blur-md border ${borderClass} shadow-2xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all duration-300 translate-y-2 opacity-0`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i><span>${message}</span>`;
+
+            container.appendChild(toast);
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        // --- 8. التهيئة الفورية عند تحميل الصفحة ---
+        function initApp() {
+            try {
+                const isUnlocked = localStorage.getItem(GATE_STORAGE_KEY);
+                if (isUnlocked === 'true') {
+                    const gate = document.getElementById('subscription-gate');
+                    if (gate) gate.classList.add('hidden');
+                    channelState.wa = true;
+                    channelState.tg = true;
+                    updateGateUI();
+                }
+            } catch (e) {}
+
+            selectDeviceTier('low');
+            selectHud('2f');
+            renderCombos('all');
+            renderCharacterTierList();
+            selectWeaponMatchup('smg');
+            selectMap('bermuda');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
