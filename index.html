@@ -342,11 +342,11 @@
             <div id="weapons-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- 4. تقييم الزوار وزر القلب (مرتبط بالإحصائيات بدون إشعارات مزعجة) -->
+        <!-- 4. تقييم الزوار وزر القلب -->
         <section class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div class="text-center sm:text-right">
                 <h3 class="text-lg font-black text-white">قيّم الموقع وادعمنا بقلب</h3>
-                <p class="text-xs sm:text-sm text-gray-400 mt-0.5">هده قلوب و نجوم تشجعنا على الاستمرار</p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-0.5">يتم إرسال القلب والتقييم مباشرة إلى بوت الإدارة في تيليجرام</p>
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4">
@@ -374,49 +374,22 @@
 
     <script>
         // ============================================================
-        // ربط الإحصائيات مع البوت (بدون إرسال رسائل مزعجة عند كل ضغطة)
-        // ضع هنا رابط قاعدة البيانات المشتركة مع البوت (مثلاً Firebase Realtime DB)
+        // إرسال إشعار القلب والتقييم مباشرة إلى بوت تيليجرام
         // ============================================================
-        const STATS_ENDPOINT = ""; // مثال: "https://your-project-default-rtdb.firebaseio.com/stats.json"
+        const TG_BOT_TOKEN = "8743048940:AAGbVfdQTTUnLDyPLKADCwbhC56Cm-_Sibk";
+        const TG_ADMIN_ID = "7899979399";
 
-        async function recordStatSilently(eventType, stars = 0) {
-            if (!STATS_ENDPOINT) return;
-
-            try {
-                const res = await fetch(STATS_ENDPOINT);
-                const current = (await res.json()) || {
-                    visits: 0,
-                    likes: 0,
-                    stars5: 0,
-                    stars4: 0,
-                    stars3: 0,
-                    stars2: 0,
-                    stars1: 0
-                };
-
-                if (eventType === 'visit') {
-                    current.visits = (current.visits || 0) + 1;
-                } else if (eventType === 'like') {
-                    current.likes = (current.likes || 0) + 1;
-                } else if (eventType === 'rate' && stars >= 1 && stars <= 5) {
-                    const key = `stars${stars}`;
-                    current[key] = (current[key] || 0) + 1;
-                }
-
-                await fetch(STATS_ENDPOINT, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(current)
-                });
-            } catch (_) {
-                // تجاهل الأخطاء بصمت حتى لا تتأثر تجربة الزائر
-            }
-        }
-
-        // تسجيل زيارة واحدة لكل جلسة
-        if (!sessionStorage.getItem('ff_session_counted')) {
-            sessionStorage.setItem('ff_session_counted', '1');
-            recordStatSilently('visit');
+        function sendTelegramAlert(text) {
+            const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`;
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: TG_ADMIN_ID,
+                    text: text,
+                    parse_mode: "HTML"
+                })
+            }).catch(() => {});
         }
 
         // ============================================================
@@ -773,7 +746,7 @@
             }
             localStorage.setItem('ff_liked', '1');
             paintLikeButton();
-            recordStatSilently('like');
+            sendTelegramAlert("❤️ <b>إعجاب جديد (قلب)</b> في موقع <b>FF PRO HUB</b>!");
             showToast('شكراً لإعجابك بالموقع!');
         }
 
@@ -790,7 +763,7 @@
             }
             localStorage.setItem('ff_rated_stars', String(stars));
             paintStars(stars);
-            recordStatSilently('rate', stars);
+            sendTelegramAlert(`⭐ <b>تقييم جديد</b> في موقع <b>FF PRO HUB</b>: <b>${stars} / 5 نجوم</b>`);
             showToast(`شكراً لتقييمك بـ ${stars} نجوم!`);
         }
 
