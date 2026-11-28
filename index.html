@@ -1,19 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة محترفي فري فاير | إعدادات الهيدشوت والأسلحة</title>
-    <!-- استيراد خط Cairo العربي الاحترافي -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- مكتبة Tailwind CSS للتصميم المتجاوب -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -31,6 +27,7 @@
             }
         }
     </script>
+
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -41,7 +38,6 @@
             min-height: 100vh;
         }
 
-        /* تأثير الزجاج للبطاقات */
         .glass-card {
             background: rgba(21, 26, 36, 0.85);
             backdrop-filter: blur(12px);
@@ -49,7 +45,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
-        /* تخصيص شريط التمرير (Sliders) */
         input[type=range] {
             -webkit-appearance: none;
             width: 100%;
@@ -73,104 +68,50 @@
             background: #2a3241;
             border-radius: 4px;
         }
-
-        /* توهج النيون */
-        .neon-border {
-            box-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
-        }
-        .neon-text {
-            text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
-        }
-
-        /* حركة نبض خفيفة لبوابة الاشتراك */
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.25); }
-            50% { box-shadow: 0 0 35px rgba(255, 184, 0, 0.45); }
-        }
-        .gate-glow {
-            animation: pulseGlow 2.8s infinite ease-in-out;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-ffOrange selection:text-white pb-12">
 
-    <!-- بوابة الاشتراك الإجبارية (Mandatory Channel Unlock Gate) -->
-    <div id="lock-gate" class="fixed inset-0 z-50 bg-ffDark/95 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
-        <div class="glass-card gate-glow max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-ffOrange/40 relative text-center my-auto">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-ffOrange to-ffGold flex items-center justify-center shadow-lg shadow-ffOrange/40">
-                <i class="fa-solid fa-lock-open text-black text-2xl"></i>
+    <!-- بوابة الاشتراك الإجبارية -->
+    <div id="gate-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass-card max-w-md w-full rounded-2xl p-6 text-center border border-ffOrange/40 space-y-5">
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-ffOrange to-ffGold flex items-center justify-center text-black text-2xl shadow-lg shadow-ffOrange/30">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+                <h2 class="text-xl font-black text-white">اشتراك إجباري لفتح المنصة</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">اشترك في قناة واتساب وقناة تلجرام أولاً، ثم اضغط على تأكيد الاشتراك</p>
             </div>
 
-            <span class="inline-block px-3 py-1 rounded-full bg-ffOrange/15 text-ffGold text-xs font-bold border border-ffOrange/30 mb-3">
-                خطوة واحدة لفتح المنصة
-            </span>
-
-            <h2 class="text-2xl sm:text-3xl font-black text-white mb-2">
-                اشترك في القنوات لفتح <span class="text-transparent bg-clip-text bg-gradient-to-r from-ffOrange to-ffGold">FF PRO HUB</span>
-            </h2>
-            <p class="text-sm text-gray-300 leading-relaxed mb-6">
-                للوصول إلى حاسبة الهيدشوت (200 MAX)، محرك البحث عن الهواتف، وإعدادات المحترفين الحصرية، يرجى الانضمام إلى قناة واتساب وقناة تلجرام أولاً ثم الضغط على زر التأكيد.
-            </p>
-
-            <!-- أزرار الاشتراك في واتساب وتلجرام -->
-            <div class="space-y-3 mb-6 text-right">
+            <div class="space-y-3 text-right">
                 <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
-                   onclick="markChannelClicked('whatsapp')"
-                   class="flex items-center justify-between p-4 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 transition group">
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-xl bg-emerald-500 text-black flex items-center justify-center text-xl shadow-md">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <div class="font-black text-white text-sm sm:text-base flex items-center gap-2">
-                                قناة واتساب الرسمية
-                                <span id="badge-whatsapp" class="text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-gray-300 font-bold">مطلوب</span>
-                            </div>
-                            <p class="text-xs text-emerald-300/90">أكواد، إعدادات، وتحديثات فري فاير اليومية</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-emerald-400 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] transition"></i>
+                   onclick="markChannelClicked('wa')"
+                   class="flex items-center justify-between p-3.5 rounded-xl bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 transition">
+                    <span class="font-bold text-sm text-white flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i> قناة واتساب الرسمية
+                    </span>
+                    <span id="wa-status" class="text-xs px-2.5 py-1 rounded-lg bg-white/10 text-gray-300">اشتراك</span>
                 </a>
 
                 <a href="https://t.me/azizbitari" target="_blank" rel="noopener noreferrer"
-                   onclick="markChannelClicked('telegram')"
-                   class="flex items-center justify-between p-4 rounded-2xl bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/40 transition group">
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-xl bg-sky-500 text-black flex items-center justify-center text-xl shadow-md">
-                            <i class="fa-brands fa-telegram"></i>
-                        </div>
-                        <div>
-                            <div class="font-black text-white text-sm sm:text-base flex items-center gap-2">
-                                قناة تلجرام (@azizbitari)
-                                <span id="badge-telegram" class="text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-gray-300 font-bold">مطلوب</span>
-                            </div>
-                            <p class="text-xs text-sky-300/90">ملفات الإعدادات، تصاميم، وشروحات حصرية</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-sky-400 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] transition"></i>
+                   onclick="markChannelClicked('tg')"
+                   class="flex items-center justify-between p-3.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 transition">
+                    <span class="font-bold text-sm text-white flex items-center gap-2">
+                        <i class="fa-brands fa-telegram text-sky-400 text-lg"></i> قناة تلجرام الرسمية
+                    </span>
+                    <span id="tg-status" class="text-xs px-2.5 py-1 rounded-lg bg-white/10 text-gray-300">اشتراك</span>
                 </a>
             </div>
 
-            <!-- رسالة تنبيه داخل البوابة عند عدم إتمام النقر -->
-            <p id="gate-warning" class="hidden text-xs font-bold text-red-400 bg-red-500/10 border border-red-500/30 rounded-xl py-2.5 px-3 mb-4">
-                يرجى الضغط على رابط قناة واتساب وقناة تلجرام أولاً لتفعيل زر فتح الموقع.
-            </p>
-
-            <!-- زر فتح الموقع / تأكيد الاشتراك -->
-            <button id="unlock-btn" onclick="verifyAndUnlockSite()"
-                    class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-ffOrange to-ffGold text-black font-black text-base shadow-lg shadow-ffOrange/30 hover:scale-[1.01] active:scale-95 transition flex items-center justify-center gap-2">
-                <i class="fa-solid fa-shield-check"></i> تأكيد الاشتراك وفتح الموقع
+            <button onclick="verifySubscription()" class="w-full py-3 rounded-xl bg-gradient-to-r from-ffOrange to-ffGold text-black font-black text-sm shadow-lg shadow-ffOrange/30 hover:opacity-95 transition">
+                تأكيد الاشتراك والدخول
             </button>
-
-            <p class="text-[11px] text-gray-400 mt-4">
-                سيتم حفظ حالة فتح المنصة تلقائياً على جهازك لعدم تكرار البوابة في كل زيارة.
-            </p>
         </div>
     </div>
 
-    <!-- الشريط العلوي (Navbar) -->
+    <!-- الشريط العلوي -->
     <header class="sticky top-0 z-40 glass-card border-b border-ffOrange/30 px-4 py-3">
-        <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-ffOrange to-ffGold flex items-center justify-center shadow-lg shadow-ffOrange/30">
                     <i class="fa-solid fa-fire text-black text-xl"></i>
@@ -182,37 +123,30 @@
                     <p class="text-[11px] text-gray-400 -mt-1">منصة المحترفين والإعدادات</p>
                 </div>
             </div>
-            
-            <div class="flex flex-wrap gap-2">
-                <a href="#phone-search-section" class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-200 hover:bg-white/10 transition text-xs sm:text-sm font-bold">
-                    <i class="fa-solid fa-mobile-screen-button text-ffGold ml-1"></i> الهواتف
-                </a>
+
+            <div class="flex gap-2">
                 <a href="#sensitivity-section" class="px-3 py-1.5 rounded-lg bg-ffOrange/10 text-ffOrange hover:bg-ffOrange hover:text-white transition text-xs sm:text-sm font-bold border border-ffOrange/30">
                     <i class="fa-solid fa-crosshairs ml-1"></i> الحساسية
                 </a>
                 <a href="#weapons-section" class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-300 hover:bg-white/10 transition text-xs sm:text-sm font-bold">
                     <i class="fa-solid fa-gun ml-1"></i> الأسلحة
                 </a>
-                <button onclick="openLockGate()" title="إدارة الاشتراك والقنوات"
-                        class="px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25 border border-emerald-500/30 transition text-xs sm:text-sm font-bold">
-                    <i class="fa-solid fa-bullhorn ml-1"></i> القنوات
-                </button>
             </div>
         </div>
     </header>
 
     <!-- المحتوى الرئيسي -->
-    <main id="main-content" class="max-w-5xl mx-auto px-4 pt-6 space-y-8">
+    <main class="max-w-5xl mx-auto px-4 pt-6 space-y-8">
 
-        <!-- 1. بطاقة اللاعب القابلة للتخصيص -->
+        <!-- 1. بطاقة اللاعب -->
         <section class="glass-card rounded-2xl p-5 sm:p-6 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-32 h-32 bg-ffOrange/10 rounded-full blur-2xl -translate-x-10 -translate-y-10 pointer-events-none"></div>
-            
+
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-5">
                 <div class="flex items-center gap-3">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-ffGold flex items-center justify-center relative">
                         <i class="fa-solid fa-user-astronaut text-2xl text-ffGold"></i>
-                        <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-ffCard" title="متصل"></span>
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-ffCard"></span>
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
@@ -222,7 +156,7 @@
                             </span>
                         </div>
                         <p class="text-sm text-gray-400 mt-0.5">
-                            الآيدي (ID): <span id="display-id" class="text-ffGold font-mono font-bold">1948273650</span> • 
+                            الآيدي (ID): <span id="display-id" class="text-ffGold font-mono font-bold">1948273650</span> •
                             الكلان: <span id="display-guild" class="text-gray-200 font-semibold">ATLAS LEGENDS</span>
                         </p>
                     </div>
@@ -233,7 +167,6 @@
                 </button>
             </div>
 
-            <!-- نموذج تعديل البطاقة (مخفي افتراضياً) -->
             <div id="edit-profile-form" class="hidden pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 <div>
                     <label class="block text-xs text-gray-400 mb-1">اسم اللاعب في اللعبة</label>
@@ -264,70 +197,33 @@
             </div>
         </section>
 
-        <!-- 1.5 محرك البحث المتقدم عن الهواتف وقاعدة البيانات -->
-        <section id="phone-search-section" class="glass-card rounded-2xl p-5 sm:p-6">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-5">
-                <div>
-                    <h2 class="text-xl font-black text-white flex items-center gap-2">
-                        <i class="fa-solid fa-magnifying-glass-mobile text-ffGold"></i> محرك البحث عن الهواتف وإعداداتها
-                    </h2>
-                    <p class="text-xs sm:text-sm text-gray-400 mt-1">ابحث باسم هاتفك أو الشركة أو الرام واختره بنقرة واحدة لتطبيق إعداداته فوراً</p>
-                </div>
-                <span id="phones-count-badge" class="px-3 py-1 rounded-full bg-ffOrange/15 text-ffOrange border border-ffOrange/30 text-xs font-bold">
-                    0 هاتف متاح
-                </span>
-            </div>
-
-            <!-- شريط البحث وفلتر الشركة -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
-                <div class="md:col-span-2 relative">
-                    <i class="fa-solid fa-search text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 text-sm"></i>
-                    <input type="text" id="phone-search-input" oninput="handlePhoneSearch()"
-                           placeholder="ابحث مثلاً: A55, Poco X6, iPhone 15, Redmi Note 13, Infinix Hot 40, 8GB..."
-                           class="w-full bg-ffDark border border-gray-700 focus:border-ffOrange rounded-xl pr-10 pl-10 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none">
-                    <button id="clear-search-btn" onclick="clearPhoneSearch()"
-                            class="hidden absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white text-xs">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-
-                <div>
-                    <select id="phone-brand-filter" onchange="handlePhoneSearch()"
-                            class="w-full bg-ffDark border border-gray-700 focus:border-ffOrange rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none">
-                        <option value="all">كل الشركات (All Brands)</option>
-                        <option value="samsung">Samsung</option>
-                        <option value="xiaomi">Xiaomi / Poco / Redmi</option>
-                        <option value="iphone">iPhone</option>
-                        <option value="oppo">Oppo</option>
-                        <option value="realme">Realme</option>
-                        <option value="infinix">Infinix</option>
-                        <option value="tecno">Tecno</option>
-                        <option value="vivo">Vivo</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- شبكة نتائج الهواتف -->
-            <div id="phones-results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[460px] overflow-y-auto pr-1">
-                <!-- يتم عرض الهواتف عبر الجافاسكربت -->
-            </div>
-        </section>
-
-        <!-- 2. حاسبة إعدادات الحساسية الاحترافية (Headshot Sensitivity) -->
+        <!-- 2. حاسبة إعدادات الحساسية ومحرك البحث عن الهواتف -->
         <section id="sensitivity-section" class="glass-card rounded-2xl p-5 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
                 <div>
                     <h2 class="text-xl font-black text-white flex items-center gap-2">
                         <i class="fa-solid fa-crosshairs text-ffOrange"></i> مولد إعدادات الهيدشوت (200 MAX)
                     </h2>
-                    <p class="text-xs sm:text-sm text-gray-400 mt-1">اختر نوع هاتفك وحجم الرام للحصول على أفضل ثبات للايم (One-Tap)</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">ابحث عن هاتفك أو اختر الشركة والرام للحصول على إعدادات مضبوطة</p>
                 </div>
                 <span class="px-3 py-1 rounded-full bg-ffGold/10 text-ffGold border border-ffGold/30 text-xs font-bold">
                     مُحدّث لآخر إصدار
                 </span>
             </div>
 
-            <!-- خيارات اختيار الهاتف والرام -->
+            <!-- محرك البحث عن الهواتف -->
+            <div class="mb-4 relative">
+                <label class="block text-xs font-bold text-gray-300 mb-1.5">بحث سريع عن هاتفك</label>
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2"></i>
+                    <input type="text" id="phone-search" oninput="searchPhones(this.value)"
+                           placeholder="مثال: Galaxy A55, Redmi Note 13, iPhone 14, Realme C55, Infinix Note..."
+                           class="w-full bg-ffDark border border-gray-700 rounded-xl pr-10 pl-4 py-2.5 text-sm text-white focus:outline-none focus:border-ffOrange">
+                </div>
+                <div id="phone-search-results" class="hidden mt-2 bg-ffDark border border-white/10 rounded-xl divide-y divide-white/5 max-h-52 overflow-y-auto"></div>
+            </div>
+
+            <!-- خيارات الشركة والرام وأسلوب اللعب -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 bg-ffDark/60 p-4 rounded-xl border border-white/5">
                 <div>
                     <label class="block text-xs font-bold text-gray-300 mb-1.5">شركة الهاتف (Brand)</label>
@@ -337,6 +233,7 @@
                         <option value="iphone">iPhone (آيفون iOS)</option>
                         <option value="oppo">Oppo / Realme / Vivo</option>
                         <option value="infinix">Infinix / Tecno</option>
+                        <option value="huawei">Huawei / Honor</option>
                     </select>
                 </div>
                 <div>
@@ -357,19 +254,8 @@
                 </div>
             </div>
 
-            <!-- شارة الهاتف المحدد حالياً -->
-            <div id="selected-phone-banner" class="mb-5 px-4 py-2.5 rounded-xl bg-ffGold/10 border border-ffGold/30 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
-                <div class="flex items-center gap-2 text-ffGold font-bold">
-                    <i class="fa-solid fa-mobile-screen"></i>
-                    <span>الهاتف المحدد:</span>
-                    <span id="active-phone-name" class="text-white font-black">إعداد مخصص حسب الشركة والرام</span>
-                </div>
-                <span id="active-phone-specs" class="text-gray-300 font-mono text-xs">4GB-6GB RAM • متوازن</span>
-            </div>
-
-            <!-- أشرطة الحساسية التفاعلية -->
+            <!-- أشرطة الحساسية -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" id="sliders-container">
-                <!-- العام (General) -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">عام (General)</span>
@@ -378,7 +264,6 @@
                     <input type="range" id="range-general" min="0" max="200" value="188" oninput="updateSingleSlider('general', this.value)">
                 </div>
 
-                <!-- نقطة حمراء (Red Dot) -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">نقطة حمراء (Red Dot)</span>
@@ -387,7 +272,6 @@
                     <input type="range" id="range-reddot" min="0" max="200" value="175" oninput="updateSingleSlider('reddot', this.value)">
                 </div>
 
-                <!-- عدسة 2x -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">عدسة 2x (2x Scope)</span>
@@ -396,7 +280,6 @@
                     <input type="range" id="range-scope2" min="0" max="200" value="182" oninput="updateSingleSlider('scope2', this.value)">
                 </div>
 
-                <!-- عدسة 4x -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">عدسة 4x (4x Scope)</span>
@@ -405,7 +288,6 @@
                     <input type="range" id="range-scope4" min="0" max="200" value="169" oninput="updateSingleSlider('scope4', this.value)">
                 </div>
 
-                <!-- عدسة القناصة -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">عدسة القناصة (Sniper Scope)</span>
@@ -414,7 +296,6 @@
                     <input type="range" id="range-sniper" min="0" max="200" value="95" oninput="updateSingleSlider('sniper', this.value)">
                 </div>
 
-                <!-- نظرة حرة -->
                 <div class="bg-ffDark/80 p-3.5 rounded-xl border border-white/5">
                     <div class="flex justify-between text-sm font-bold mb-2">
                         <span class="text-gray-200">نظرة حرة (Free Look)</span>
@@ -424,7 +305,7 @@
                 </div>
             </div>
 
-            <!-- نصيحة حجم زر الضرب وزر النسخ -->
+            <!-- حجم زر الضرب ونسخ الإعدادات -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-white/10">
                 <div class="flex items-center gap-3 text-sm bg-ffOrange/10 border border-ffOrange/30 px-4 py-2.5 rounded-xl w-full sm:w-auto">
                     <i class="fa-solid fa-bullseye text-ffGold text-lg"></i>
@@ -440,7 +321,7 @@
             </div>
         </section>
 
-        <!-- 3. استعراض أقوى الأسلحة وإحصائياتها -->
+        <!-- 3. استعراض الأسلحة -->
         <section id="weapons-section" class="glass-card rounded-2xl p-5 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
                 <div>
@@ -449,114 +330,159 @@
                     </h2>
                     <p class="text-xs sm:text-sm text-gray-400 mt-1">قارن بين قوة الأسلحة واختر الأنسب للمواجهات القريبة والبعيدة</p>
                 </div>
-                
-                <!-- أزرار فلترة الأسلحة -->
+
                 <div class="flex gap-2 bg-ffDark p-1 rounded-xl border border-white/10 w-full sm:w-auto overflow-x-auto">
-                    <button onclick="filterWeapons('all', this)" class="weapon-tab active px-3 py-1.5 rounded-lg text-xs font-bold bg-ffOrange text-white transition">الكل</button>
+                    <button onclick="filterWeapons('all', this)" class="weapon-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-ffOrange text-white transition">الكل</button>
                     <button onclick="filterWeapons('smg', this)" class="weapon-tab px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">رشاش (SMG)</button>
                     <button onclick="filterWeapons('shotgun', this)" class="weapon-tab px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">شوتغن</button>
                     <button onclick="filterWeapons('ar', this)" class="weapon-tab px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">هجوم (AR)</button>
                 </div>
             </div>
 
-            <!-- شبكة بطاقات الأسلحة -->
-            <div id="weapons-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- يتم تعبئتها تلقائياً عبر الجافاسكربت -->
+            <div id="weapons-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
+
+        <!-- 4. تقييم الزوار وزر القلب (مرتبط بالإحصائيات بدون إشعارات مزعجة) -->
+        <section class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div class="text-center sm:text-right">
+                <h3 class="text-lg font-black text-white">قيّم الموقع وادعمنا بقلب</h3>
+                <p class="text-xs sm:text-sm text-gray-400 mt-0.5">هده قلوب و نجوم تشجعنا على الاستمرار</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <div id="rating-stars" class="flex items-center gap-1.5 bg-ffDark/90 px-4 py-2.5 rounded-xl border border-white/10 text-xl cursor-pointer">
+                    <i class="fa-solid fa-star text-gray-600 hover:text-ffGold transition" onclick="rateSite(1)"></i>
+                    <i class="fa-solid fa-star text-gray-600 hover:text-ffGold transition" onclick="rateSite(2)"></i>
+                    <i class="fa-solid fa-star text-gray-600 hover:text-ffGold transition" onclick="rateSite(3)"></i>
+                    <i class="fa-solid fa-star text-gray-600 hover:text-ffGold transition" onclick="rateSite(4)"></i>
+                    <i class="fa-solid fa-star text-gray-600 hover:text-ffGold transition" onclick="rateSite(5)"></i>
+                </div>
+
+                <button id="like-btn" onclick="toggleLike()" class="px-5 py-2.5 rounded-xl bg-ffDark/90 hover:bg-red-500/10 border border-white/10 text-sm font-bold text-gray-200 transition flex items-center gap-2">
+                    <i class="fa-regular fa-heart text-red-500 text-base"></i> عجبني الموقع
+                </button>
             </div>
         </section>
 
-        <!-- التذييل وروابط القنوات -->
-        <footer class="glass-card rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
-            <div>
-                <p class="text-sm font-bold text-white">FF PRO HUB • إعدادات واحتراف فري فاير</p>
-                <p class="text-xs text-gray-400 mt-0.5">تابع القنوات الرسمية للحصول على أحدث الإعدادات والأكواد</p>
-            </div>
-            <div class="flex flex-wrap items-center justify-center gap-2.5">
-                <a href="https://whatsapp.com/channel/0029VbDAP0VBfxo7wOwC591M" target="_blank" rel="noopener noreferrer"
-                   class="px-4 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-bold transition flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> قناة واتساب
-                </a>
-                <a href="https://t.me/azizbitari" target="_blank" rel="noopener noreferrer"
-                   class="px-4 py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 border border-sky-500/30 text-xs font-bold transition flex items-center gap-2">
-                    <i class="fa-brands fa-telegram text-sm"></i> قناة تلجرام
-                </a>
-            </div>
-        </footer>
-
     </main>
 
-    <!-- إشعار منبثق (Toast Notification) بديل للـ Alert -->
+    <!-- إشعار Toast -->
     <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-gray-900 border border-ffOrange text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none">
         <i class="fa-solid fa-circle-check text-green-400 text-lg"></i>
-        <span id="toast-message" class="text-sm font-bold">تم نسخ الإعدادات بنجاح!</span>
+        <span id="toast-message" class="text-sm font-bold">تم بنجاح!</span>
     </div>
 
     <script>
-        const STORAGE_KEYS = {
-            PROFILE: 'ff_pro_hub_profile_v1',
-            UNLOCKED: 'ff_pro_hub_channels_unlocked_v1'
-        };
+        // ============================================================
+        // ربط الإحصائيات مع البوت (بدون إرسال رسائل مزعجة عند كل ضغطة)
+        // ضع هنا رابط قاعدة البيانات المشتركة مع البوت (مثلاً Firebase Realtime DB)
+        // ============================================================
+        const STATS_ENDPOINT = ""; // مثال: "https://your-project-default-rtdb.firebaseio.com/stats.json"
 
-        // --- 0. بوابة الاشتراك الإجبارية ---
-        let channelClicks = {
-            whatsapp: false,
-            telegram: false
-        };
+        async function recordStatSilently(eventType, stars = 0) {
+            if (!STATS_ENDPOINT) return;
 
-        function markChannelClicked(channel) {
-            channelClicks[channel] = true;
-            updateChannelBadges();
-            document.getElementById('gate-warning').classList.add('hidden');
+            try {
+                const res = await fetch(STATS_ENDPOINT);
+                const current = (await res.json()) || {
+                    visits: 0,
+                    likes: 0,
+                    stars5: 0,
+                    stars4: 0,
+                    stars3: 0,
+                    stars2: 0,
+                    stars1: 0
+                };
+
+                if (eventType === 'visit') {
+                    current.visits = (current.visits || 0) + 1;
+                } else if (eventType === 'like') {
+                    current.likes = (current.likes || 0) + 1;
+                } else if (eventType === 'rate' && stars >= 1 && stars <= 5) {
+                    const key = `stars${stars}`;
+                    current[key] = (current[key] || 0) + 1;
+                }
+
+                await fetch(STATS_ENDPOINT, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(current)
+                });
+            } catch (_) {
+                // تجاهل الأخطاء بصمت حتى لا تتأثر تجربة الزائر
+            }
         }
 
-        function updateChannelBadges() {
-            const waBadge = document.getElementById('badge-whatsapp');
-            const tgBadge = document.getElementById('badge-telegram');
+        // تسجيل زيارة واحدة لكل جلسة
+        if (!sessionStorage.getItem('ff_session_counted')) {
+            sessionStorage.setItem('ff_session_counted', '1');
+            recordStatSilently('visit');
+        }
 
-            if (channelClicks.whatsapp) {
-                waBadge.textContent = 'تم الضغط ✓';
-                waBadge.className = 'text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 font-bold';
+        // ============================================================
+        // بوابة الاشتراك الإجبارية
+        // ============================================================
+        let waClicked = localStorage.getItem('ff_wa_clicked') === '1';
+        let tgClicked = localStorage.getItem('ff_tg_clicked') === '1';
+
+        function checkGateOnLoad() {
+            const unlocked = localStorage.getItem('ff_gate_unlocked') === '1';
+            if (!unlocked) {
+                document.getElementById('gate-modal').classList.remove('hidden');
             }
-            if (channelClicks.telegram) {
-                tgBadge.textContent = 'تم الضغط ✓';
-                tgBadge.className = 'text-[11px] px-2 py-0.5 rounded-full bg-sky-500/25 text-sky-300 font-bold';
+            if (waClicked) {
+                document.getElementById('wa-status').textContent = 'تم الفتح ✓';
+                document.getElementById('wa-status').className = 'text-xs px-2.5 py-1 rounded-lg bg-green-500/20 text-green-300 font-bold';
+            }
+            if (tgClicked) {
+                document.getElementById('tg-status').textContent = 'تم الفتح ✓';
+                document.getElementById('tg-status').className = 'text-xs px-2.5 py-1 rounded-lg bg-sky-500/20 text-sky-300 font-bold';
             }
         }
 
-        function verifyAndUnlockSite() {
-            const isUnlockedAlready = localStorage.getItem(STORAGE_KEYS.UNLOCKED) === 'true';
-            if (!isUnlockedAlready && (!channelClicks.whatsapp || !channelClicks.telegram)) {
-                document.getElementById('gate-warning').classList.remove('hidden');
-                showToast('اضغط على قناة واتساب وتلجرام أولاً ثم أكد الاشتراك');
+        function markChannelClicked(ch) {
+            if (ch === 'wa') {
+                waClicked = true;
+                localStorage.setItem('ff_wa_clicked', '1');
+            } else if (ch === 'tg') {
+                tgClicked = true;
+                localStorage.setItem('ff_tg_clicked', '1');
+            }
+            setTimeout(checkGateOnLoad, 300);
+        }
+
+        function verifySubscription() {
+            if (!waClicked || !tgClicked) {
+                showToast('يرجى الضغط على قناتي واتساب وتلجرام أولاً!');
                 return;
             }
-
-            localStorage.setItem(STORAGE_KEYS.UNLOCKED, 'true');
-            document.getElementById('lock-gate').classList.add('hidden');
-            showToast('تم فتح FF PRO HUB بنجاح! أهلاً بك يا بطل');
+            localStorage.setItem('ff_gate_unlocked', '1');
+            document.getElementById('gate-modal').classList.add('hidden');
+            showToast('مرحباً بك في FF PRO HUB!');
         }
 
-        function openLockGate() {
-            document.getElementById('gate-warning').classList.add('hidden');
-            document.getElementById('lock-gate').classList.remove('hidden');
-        }
-
-        function initLockGateState() {
-            const unlocked = localStorage.getItem(STORAGE_KEYS.UNLOCKED) === 'true';
-            if (unlocked) {
-                document.getElementById('lock-gate').classList.add('hidden');
-            } else {
-                document.getElementById('lock-gate').classList.remove('hidden');
-            }
-        }
-
-        // --- 1. إدارة بطاقة اللاعب مع الحفظ في localStorage ---
+        // ============================================================
+        // بطاقة اللاعب
+        // ============================================================
         function toggleEditProfile() {
-            const form = document.getElementById('edit-profile-form');
-            form.classList.toggle('hidden');
+            document.getElementById('edit-profile-form').classList.toggle('hidden');
         }
 
-        function applyProfileToDOM(profile) {
+        function saveProfile() {
+            const profile = {
+                name: document.getElementById('input-name').value.trim() || 'PLAYER_FF',
+                id: document.getElementById('input-id').value.trim() || '000000000',
+                rank: document.getElementById('input-rank').value,
+                guild: document.getElementById('input-guild').value.trim() || 'NO GUILD'
+            };
+
+            localStorage.setItem('ff_player_profile', JSON.stringify(profile));
+            applyProfile(profile);
+            document.getElementById('edit-profile-form').classList.add('hidden');
+            showToast('تم تحديث بطاقة اللاعب بنجاح!');
+        }
+
+        function applyProfile(profile) {
             document.getElementById('display-name').textContent = profile.name;
             document.getElementById('display-id').textContent = profile.id;
             document.getElementById('display-rank').textContent = profile.rank;
@@ -568,196 +494,81 @@
             document.getElementById('input-guild').value = profile.guild;
         }
 
-        function loadProfile() {
-            try {
-                const saved = localStorage.getItem(STORAGE_KEYS.PROFILE);
-                if (saved) {
-                    const parsed = JSON.parse(saved);
-                    applyProfileToDOM({
-                        name: parsed.name || 'PRO_PLAYER_MA',
-                        id: parsed.id || '1948273650',
-                        rank: parsed.rank || 'بطولي (Heroic)',
-                        guild: parsed.guild || 'ATLAS LEGENDS'
-                    });
-                }
-            } catch (err) {
-                // تجاهل أخطاء التخزين المحلي بأمان
-            }
-        }
-
-        function saveProfile() {
-            const profile = {
-                name: document.getElementById('input-name').value.trim() || 'PLAYER_FF',
-                id: document.getElementById('input-id').value.trim() || '000000000',
-                rank: document.getElementById('input-rank').value,
-                guild: document.getElementById('input-guild').value.trim() || 'NO GUILD'
-            };
-
-            applyProfileToDOM(profile);
-            try {
-                localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(profile));
-            } catch (err) {
-                // تجاهل أخطاء التخزين المحلي بأمان
-            }
-
-            document.getElementById('edit-profile-form').classList.add('hidden');
-            showToast('تم حفظ وتحديث بطاقة اللاعب بنجاح!');
-        }
-
-        // --- 1.5 قاعدة بيانات الهواتف ومحرك البحث ---
-        const phonesDatabase = [
-            { id: 's-a15', name: 'Samsung Galaxy A15', brand: 'samsung', brandLabel: 'Samsung', ram: '4GB - 6GB RAM', performance: 'متوسط (60Hz)', general: 193, reddot: 182, scope2: 187, scope4: 175, sniper: 96, freelook: 146, btn: '45%' },
-            { id: 's-a25', name: 'Samsung Galaxy A25 5G', brand: 'samsung', brandLabel: 'Samsung', ram: '6GB - 8GB RAM', performance: 'جيد جداً (120Hz)', general: 189, reddot: 178, scope2: 183, scope4: 172, sniper: 92, freelook: 142, btn: '45%' },
-            { id: 's-a55', name: 'Samsung Galaxy A55 5G', brand: 'samsung', brandLabel: 'Samsung', ram: '8GB - 12GB RAM', performance: 'قوي (120Hz)', general: 185, reddot: 174, scope2: 179, scope4: 168, sniper: 89, freelook: 138, btn: '44%' },
-            { id: 's-s24u', name: 'Samsung Galaxy S24 Ultra', brand: 'samsung', brandLabel: 'Samsung', ram: '12GB RAM', performance: 'فائق القوة (120Hz LTPO)', general: 180, reddot: 168, scope2: 174, scope4: 163, sniper: 85, freelook: 135, btn: '43%' },
-
-            { id: 'x-rn12c', name: 'Xiaomi Redmi 12C', brand: 'xiaomi', brandLabel: 'Xiaomi', ram: '3GB - 4GB RAM', performance: 'اقتصادي (60Hz)', general: 199, reddot: 190, scope2: 194, scope4: 183, sniper: 104, freelook: 156, btn: '46%' },
-            { id: 'x-rn13', name: 'Redmi Note 13', brand: 'xiaomi', brandLabel: 'Xiaomi', ram: '6GB - 8GB RAM', performance: 'جيد جداً (120Hz)', general: 194, reddot: 183, scope2: 188, scope4: 176, sniper: 97, freelook: 148, btn: '44%' },
-            { id: 'x-px6p', name: 'Poco X6 Pro 5G', brand: 'xiaomi', brandLabel: 'Poco', ram: '8GB - 12GB RAM', performance: 'احترافي للألعاب (120Hz)', general: 187, reddot: 176, scope2: 181, scope4: 170, sniper: 90, freelook: 140, btn: '43%' },
-            { id: 'x-poco-f5', name: 'Poco F5', brand: 'xiaomi', brandLabel: 'Poco', ram: '8GB - 12GB RAM', performance: 'قوي جداً (120Hz)', general: 186, reddot: 175, scope2: 180, scope4: 169, sniper: 89, freelook: 139, btn: '44%' },
-
-            { id: 'i-11', name: 'iPhone 11', brand: 'iphone', brandLabel: 'iPhone', ram: '4GB RAM', performance: 'سلس (60Hz iOS)', general: 182, reddot: 170, scope2: 175, scope4: 164, sniper: 88, freelook: 135, btn: '48%' },
-            { id: 'i-13', name: 'iPhone 13', brand: 'iphone', brandLabel: 'iPhone', ram: '4GB RAM', performance: 'سلس جداً (60Hz iOS)', general: 179, reddot: 167, scope2: 172, scope4: 162, sniper: 86, freelook: 132, btn: '47%' },
-            { id: 'i-14pm', name: 'iPhone 14 Pro Max', brand: 'iphone', brandLabel: 'iPhone', ram: '6GB RAM', performance: 'احترافي (120Hz ProMotion)', general: 175, reddot: 163, scope2: 168, scope4: 158, sniper: 82, freelook: 128, btn: '46%' },
-            { id: 'i-15pm', name: 'iPhone 15 Pro Max', brand: 'iphone', brandLabel: 'iPhone', ram: '8GB RAM', performance: 'فائق السرعة (120Hz)', general: 173, reddot: 161, scope2: 166, scope4: 156, sniper: 80, freelook: 126, btn: '45%' },
-
-            { id: 'o-a78', name: 'Oppo A78', brand: 'oppo', brandLabel: 'Oppo', ram: '8GB RAM', performance: 'متوسط - جيد (90Hz)', general: 193, reddot: 181, scope2: 186, scope4: 174, sniper: 93, freelook: 142, btn: '45%' },
-            { id: 'o-r11', name: 'Oppo Reno 11 5G', brand: 'oppo', brandLabel: 'Oppo', ram: '8GB - 12GB RAM', performance: 'قوي (120Hz)', general: 188, reddot: 177, scope2: 182, scope4: 170, sniper: 90, freelook: 138, btn: '44%' },
-
-            { id: 'r-c55', name: 'Realme C55', brand: 'realme', brandLabel: 'Realme', ram: '6GB - 8GB RAM', performance: 'متوسط (90Hz)', general: 195, reddot: 184, scope2: 189, scope4: 177, sniper: 96, freelook: 146, btn: '45%' },
-            { id: 'r-gtneo', name: 'Realme GT Neo 3T', brand: 'realme', brandLabel: 'Realme', ram: '8GB RAM', performance: 'قوي للألعاب (120Hz)', general: 187, reddot: 176, scope2: 181, scope4: 169, sniper: 90, freelook: 139, btn: '44%' },
-
-            { id: 'inf-hot40p', name: 'Infinix Hot 40 Pro', brand: 'infinix', brandLabel: 'Infinix', ram: '8GB RAM', performance: 'مناسب للألعاب (120Hz)', general: 196, reddot: 186, scope2: 190, scope4: 179, sniper: 97, freelook: 150, btn: '43%' },
-            { id: 'inf-n40', name: 'Infinix Note 40 Pro', brand: 'infinix', brandLabel: 'Infinix', ram: '8GB RAM', performance: 'جيد جداً (120Hz)', general: 193, reddot: 182, scope2: 187, scope4: 176, sniper: 94, freelook: 146, btn: '44%' },
-
-            { id: 't-sp20', name: 'Tecno Spark 20 Pro+', brand: 'tecno', brandLabel: 'Tecno', ram: '8GB RAM', performance: 'متوسط - جيد (120Hz)', general: 195, reddot: 184, scope2: 189, scope4: 178, sniper: 95, freelook: 148, btn: '44%' },
-            { id: 'v-y36', name: 'Vivo Y36', brand: 'vivo', brandLabel: 'Vivo', ram: '8GB RAM', performance: 'متوسط (90Hz)', general: 194, reddot: 183, scope2: 188, scope4: 176, sniper: 94, freelook: 144, btn: '45%' }
+        // ============================================================
+        // قاعدة بيانات الهواتف والبحث والحساسية
+        // ============================================================
+        const phonesCatalog = [
+            { model: 'Samsung Galaxy A55 / A54', brand: 'samsung', ram: 'high' },
+            { model: 'Samsung Galaxy A15 / A14', brand: 'samsung', ram: 'mid' },
+            { model: 'Samsung Galaxy A05 / A04', brand: 'samsung', ram: 'low' },
+            { model: 'Samsung Galaxy S24 / S23 Ultra', brand: 'samsung', ram: 'high' },
+            { model: 'Redmi Note 13 / 12 Pro', brand: 'xiaomi', ram: 'high' },
+            { model: 'Redmi 13C / 12C', brand: 'xiaomi', ram: 'mid' },
+            { model: 'Poco X6 / F5', brand: 'xiaomi', ram: 'high' },
+            { model: 'iPhone 15 / 14 Pro Max', brand: 'iphone', ram: 'high' },
+            { model: 'iPhone 13 / 12 / 11', brand: 'iphone', ram: 'mid' },
+            { model: 'Realme C55 / C67', brand: 'oppo', ram: 'mid' },
+            { model: 'Oppo Reno 11 / A78', brand: 'oppo', ram: 'high' },
+            { model: 'Vivo Y36 / Y27', brand: 'oppo', ram: 'mid' },
+            { model: 'Infinix Note 40 / 30', brand: 'infinix', ram: 'high' },
+            { model: 'Infinix Hot 40 / Smart 8', brand: 'infinix', ram: 'mid' },
+            { model: 'Tecno Spark 20 / Pop 8', brand: 'infinix', ram: 'low' },
+            { model: 'Honor X9b / X8b', brand: 'huawei', ram: 'high' }
         ];
 
-        function renderPhonesList(list) {
-            const grid = document.getElementById('phones-results-grid');
-            const badge = document.getElementById('phones-count-badge');
-            badge.textContent = `${list.length} هاتف متاح`;
+        function searchPhones(query) {
+            const box = document.getElementById('phone-search-results');
+            const q = query.trim().toLowerCase();
 
-            if (!list.length) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-8 bg-ffDark/70 rounded-xl border border-white/10">
-                        <i class="fa-solid fa-mobile-screen-slash text-2xl text-gray-500 mb-2"></i>
-                        <p class="text-sm text-gray-300 font-bold">لم يتم العثور على هاتف مطابق لبحثك</p>
-                        <p class="text-xs text-gray-500 mt-1">جرّب البحث باسم الشركة أو موديل آخر</p>
-                    </div>
-                `;
+            if (!q) {
+                box.classList.add('hidden');
+                box.innerHTML = '';
                 return;
             }
 
-            grid.innerHTML = list.map(phone => `
-                <div class="bg-ffDark/90 border border-white/10 hover:border-ffOrange/60 rounded-xl p-4 flex flex-col justify-between transition">
-                    <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <h3 class="font-black text-white text-sm sm:text-base">${phone.name}</h3>
-                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-ffCard text-ffGold border border-ffGold/25 shrink-0">
-                                ${phone.brandLabel}
-                            </span>
-                        </div>
-                        <p class="text-xs text-gray-400 mb-1">
-                            <i class="fa-solid fa-memory text-ffOrange ml-1"></i> ${phone.ram}
-                        </p>
-                        <p class="text-xs text-gray-400 mb-3">
-                            <i class="fa-solid fa-gauge-high text-emerald-400 ml-1"></i> ${phone.performance}
-                        </p>
-                    </div>
+            const matches = phonesCatalog.filter(p => p.model.toLowerCase().includes(q));
+            box.classList.remove('hidden');
 
-                    <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                        <span class="text-xs font-mono text-gray-300">
-                            عام: <strong class="text-ffOrange">${phone.general}</strong> • زر: <strong class="text-ffGold">${phone.btn}</strong>
-                        </span>
-                        <button onclick="selectPhonePreset('${phone.id}')"
-                                class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-ffOrange to-ffGold text-black font-black text-xs hover:scale-105 transition">
-                            تطبيق
-                        </button>
-                    </div>
-                </div>
+            if (matches.length === 0) {
+                box.innerHTML = '<div class="p-3 text-xs text-gray-400">لا توجد نتائج مطابقة، يمكنك اختيار الشركة والرام يدوياً.</div>';
+                return;
+            }
+
+            box.innerHTML = matches.map(item => `
+                <button type="button" onclick="selectPhonePreset('${item.brand}', '${item.ram}', '${item.model}')"
+                        class="w-full text-right px-3.5 py-2.5 hover:bg-white/5 flex items-center justify-between text-xs sm:text-sm transition">
+                    <span class="font-bold text-white">${item.model}</span>
+                    <span class="text-ffGold font-semibold">تطبيق الإعدادات</span>
+                </button>
             `).join('');
         }
 
-        function handlePhoneSearch() {
-            const query = document.getElementById('phone-search-input').value.trim().toLowerCase();
-            const brand = document.getElementById('phone-brand-filter').value;
-            const clearBtn = document.getElementById('clear-search-btn');
-
-            clearBtn.classList.toggle('hidden', query.length === 0);
-
-            const filtered = phonesDatabase.filter(phone => {
-                const matchesBrand = brand === 'all' || phone.brand === brand;
-                const matchesQuery = !query ||
-                    phone.name.toLowerCase().includes(query) ||
-                    phone.brandLabel.toLowerCase().includes(query) ||
-                    phone.ram.toLowerCase().includes(query) ||
-                    phone.performance.toLowerCase().includes(query);
-                return matchesBrand && matchesQuery;
-            });
-
-            renderPhonesList(filtered);
+        function selectPhonePreset(brand, ram, modelName) {
+            document.getElementById('phone-brand').value = brand;
+            document.getElementById('phone-ram').value = ram;
+            document.getElementById('phone-search').value = modelName;
+            document.getElementById('phone-search-results').classList.add('hidden');
+            calculateSensitivity();
+            showToast(`تم ضبط الحساسية لهاتف ${modelName}`);
         }
 
-        function clearPhoneSearch() {
-            document.getElementById('phone-search-input').value = '';
-            document.getElementById('clear-search-btn').classList.add('hidden');
-            handlePhoneSearch();
-        }
-
-        function selectPhonePreset(phoneId) {
-            const phone = phonesDatabase.find(p => p.id === phoneId);
-            if (!phone) return;
-
-            const values = {
-                general: phone.general,
-                reddot: phone.reddot,
-                scope2: phone.scope2,
-                scope4: phone.scope4,
-                sniper: phone.sniper,
-                freelook: phone.freelook
-            };
-
-            for (const [key, val] of Object.entries(values)) {
-                document.getElementById(`range-${key}`).value = val;
-                document.getElementById(`val-${key}`).textContent = val;
-            }
-            document.getElementById('fire-button-size').textContent = phone.btn;
-
-            document.getElementById('active-phone-name').textContent = phone.name;
-            document.getElementById('active-phone-specs').textContent = `${phone.ram} • ${phone.performance}`;
-
-            document.getElementById('sensitivity-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            showToast(`تم تطبيق إعدادات ${phone.name} بنجاح!`);
-        }
-
-        // --- 2. حاسبة الحساسية ---
         const sensitivityPresets = {
             samsung: { general: 192, reddot: 180, scope2: 185, scope4: 174, sniper: 95, freelook: 145, btn: '45%' },
             xiaomi:  { general: 196, reddot: 185, scope2: 190, scope4: 178, sniper: 100, freelook: 150, btn: '44%' },
             iphone:  { general: 178, reddot: 165, scope2: 170, scope4: 160, sniper: 85, freelook: 130, btn: '48%' },
             oppo:    { general: 194, reddot: 182, scope2: 188, scope4: 175, sniper: 92, freelook: 140, btn: '45%' },
-            infinix: { general: 198, reddot: 188, scope2: 192, scope4: 180, sniper: 98, freelook: 155, btn: '43%' }
+            infinix: { general: 198, reddot: 188, scope2: 192, scope4: 180, sniper: 98, freelook: 155, btn: '43%' },
+            huawei:  { general: 190, reddot: 178, scope2: 184, scope4: 172, sniper: 94, freelook: 142, btn: '46%' }
         };
 
         function calculateSensitivity() {
-            const brandSelect = document.getElementById('phone-brand');
-            const ramSelect = document.getElementById('phone-ram');
-            const styleSelect = document.getElementById('play-style');
+            const brand = document.getElementById('phone-brand').value;
+            const ram = document.getElementById('phone-ram').value;
+            const style = document.getElementById('play-style').value;
 
-            const brand = brandSelect.value;
-            const ram = ramSelect.value;
-            const style = styleSelect.value;
-
-            let base = { ...sensitivityPresets[brand] };
-
-            // تعديل طفيف حسب الرام
-            let ramOffset = ram === 'low' ? 4 : (ram === 'high' ? -5 : 0);
-            
-            // تعديل طفيف حسب أسلوب اللعب
-            let styleOffset = style === 'onetap' ? 3 : (style === 'smg' ? -3 : 0);
-
+            const base = { ...sensitivityPresets[brand] };
+            const ramOffset = ram === 'low' ? 4 : (ram === 'high' ? -5 : 0);
+            const styleOffset = style === 'onetap' ? 3 : (style === 'smg' ? -3 : 0);
             const clamp = (val) => Math.min(200, Math.max(50, val));
 
             const finalValues = {
@@ -769,18 +580,11 @@
                 freelook: base.freelook
             };
 
-            // تحديث الواجهة
             for (const [key, val] of Object.entries(finalValues)) {
                 document.getElementById(`range-${key}`).value = val;
                 document.getElementById(`val-${key}`).textContent = val;
             }
             document.getElementById('fire-button-size').textContent = base.btn;
-
-            const brandText = brandSelect.options[brandSelect.selectedIndex].text;
-            const ramText = ramSelect.options[ramSelect.selectedIndex].text;
-            const styleText = styleSelect.options[styleSelect.selectedIndex].text;
-            document.getElementById('active-phone-name').textContent = `إعداد مخصص (${brandText})`;
-            document.getElementById('active-phone-specs').textContent = `${ramText} • ${styleText}`;
         }
 
         function updateSingleSlider(key, value) {
@@ -788,28 +592,37 @@
         }
 
         function copySensitivity() {
-            const activePhone = document.getElementById('active-phone-name').textContent;
-            const textToCopy = `🔥 إعدادات فري فاير (${activePhone}) 🔥
-• عام (General): ${document.getElementById('val-general').textContent}
-• نقطة حمراء (Red Dot): ${document.getElementById('val-reddot').textContent}
+            const brandSelect = document.getElementById('phone-brand');
+            const brandText = brandSelect.options[brandSelect.selectedIndex].text;
+            const textToCopy = `إعدادات فري فاير (${brandText})
+• عام: ${document.getElementById('val-general').textContent}
+• نقطة حمراء: ${document.getElementById('val-reddot').textContent}
 • عدسة 2x: ${document.getElementById('val-scope2').textContent}
 • عدسة 4x: ${document.getElementById('val-scope4').textContent}
 • عدسة القناصة: ${document.getElementById('val-sniper').textContent}
 • نظرة حرة: ${document.getElementById('val-freelook').textContent}
 • حجم زر الضرب: ${document.getElementById('fire-button-size').textContent}`;
 
-            // نسخ متوافق مع جميع المتصفحات والهواتف
-            const tempTextArea = document.createElement('textarea');
-            tempTextArea.value = textToCopy;
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempTextArea);
-
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).catch(() => fallbackCopy(textToCopy));
+            } else {
+                fallbackCopy(textToCopy);
+            }
             showToast('تم نسخ إعدادات الحساسية إلى الحافظة!');
         }
 
-        // --- 3. بيانات الأسلحة والفلترة ---
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+        }
+
+        // ============================================================
+        // الأسلحة
+        // ============================================================
         const weaponsData = [
             {
                 name: 'MP40 - الكوبرا',
@@ -881,71 +694,64 @@
 
         function renderWeapons(filter = 'all') {
             const grid = document.getElementById('weapons-grid');
-            grid.innerHTML = '';
-
             const filtered = filter === 'all' ? weaponsData : weaponsData.filter(w => w.category === filter);
 
-            filtered.forEach(weapon => {
-                const card = `
-                    <div class="bg-ffDark/90 border border-white/10 hover:border-ffOrange/50 rounded-xl p-4 transition duration-300 flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-3">
-                                <div class="flex items-center gap-2.5">
-                                    <div class="w-9 h-9 rounded-lg bg-ffCard flex items-center justify-center text-ffOrange border border-ffOrange/20">
-                                        <i class="fa-solid ${weapon.icon}"></i>
-                                    </div>
-                                    <h3 class="font-bold text-white text-base">${weapon.name}</h3>
+            grid.innerHTML = filtered.map(weapon => `
+                <div class="bg-ffDark/90 border border-white/10 hover:border-ffOrange/50 rounded-xl p-4 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-lg bg-ffCard flex items-center justify-center text-ffOrange border border-ffOrange/20">
+                                    <i class="fa-solid ${weapon.icon}"></i>
                                 </div>
-                                <span class="px-2 py-0.5 rounded text-[11px] font-black ${weapon.badgeColor}">
-                                    ${weapon.tier}
-                                </span>
+                                <h3 class="font-bold text-white text-base">${weapon.name}</h3>
+                            </div>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-black ${weapon.badgeColor}">
+                                ${weapon.tier}
+                            </span>
+                        </div>
+
+                        <div class="space-y-2.5 my-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-400">الضرر (Damage)</span>
+                                    <span class="text-white font-mono font-bold">${weapon.damage}%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-red-500 to-ffOrange h-full rounded-full" style="width: ${weapon.damage}%"></div>
+                                </div>
                             </div>
 
-                            <!-- أشرطة الإحصائيات -->
-                            <div class="space-y-2.5 my-4">
-                                <div>
-                                    <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-gray-400">الضرر (Damage)</span>
-                                        <span class="text-white font-mono font-bold">${weapon.damage}%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-red-500 to-ffOrange h-full rounded-full" style="width: ${weapon.damage}%"></div>
-                                    </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-400">سرعة الإطلاق (Rate of Fire)</span>
+                                    <span class="text-white font-mono font-bold">${weapon.fireRate}%</span>
                                 </div>
-
-                                <div>
-                                    <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-gray-400">سرعة الإطلاق (Rate of Fire)</span>
-                                        <span class="text-white font-mono font-bold">${weapon.fireRate}%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-ffOrange to-ffGold h-full rounded-full" style="width: ${weapon.fireRate}%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-ffOrange to-ffGold h-full rounded-full" style="width: ${weapon.fireRate}%"></div>
                                 </div>
+                            </div>
 
-                                <div>
-                                    <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-gray-400">المدى (Range)</span>
-                                        <span class="text-white font-mono font-bold">${weapon.range}%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
-                                        <div class="bg-blue-500 h-full rounded-full" style="width: ${weapon.range}%"></div>
-                                    </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-gray-400">المدى (Range)</span>
+                                    <span class="text-white font-mono font-bold">${weapon.range}%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-blue-500 h-full rounded-full" style="width: ${weapon.range}%"></div>
                                 </div>
                             </div>
                         </div>
-
-                        <p class="text-xs text-gray-400 bg-white/5 p-2.5 rounded-lg border-r-2 border-ffGold">
-                            <i class="fa-solid fa-lightbulb text-ffGold ml-1"></i> ${weapon.tip}
-                        </p>
                     </div>
-                `;
-                grid.innerHTML += card;
-            });
+
+                    <p class="text-xs text-gray-400 bg-white/5 p-2.5 rounded-lg border-r-2 border-ffGold">
+                        <i class="fa-solid fa-lightbulb text-ffGold ml-1"></i> ${weapon.tip}
+                    </p>
+                </div>
+            `).join('');
         }
 
         function filterWeapons(category, btnElement) {
-            // تحديث شكل الأزرار
             document.querySelectorAll('.weapon-tab').forEach(btn => {
                 btn.classList.remove('bg-ffOrange', 'text-white');
                 btn.classList.add('text-gray-400');
@@ -954,30 +760,79 @@
                 btnElement.classList.add('bg-ffOrange', 'text-white');
                 btnElement.classList.remove('text-gray-400');
             }
-
             renderWeapons(category);
         }
 
-        // --- 4. إظهار الإشعارات ---
+        // ============================================================
+        // التقييم والقلب
+        // ============================================================
+        function toggleLike() {
+            if (localStorage.getItem('ff_liked') === '1') {
+                showToast('لقد أعجبت بالموقع مسبقاً');
+                return;
+            }
+            localStorage.setItem('ff_liked', '1');
+            paintLikeButton();
+            recordStatSilently('like');
+            showToast('شكراً لإعجابك بالموقع!');
+        }
+
+        function paintLikeButton() {
+            const btn = document.getElementById('like-btn');
+            btn.classList.add('border-red-500/40', 'bg-red-500/10', 'text-red-400');
+            btn.innerHTML = '<i class="fa-solid fa-heart text-red-500 text-base"></i> تم الإعجاب';
+        }
+
+        function rateSite(stars) {
+            if (localStorage.getItem('ff_rated_stars')) {
+                showToast('لقد قمت بتقييم الموقع مسبقاً');
+                return;
+            }
+            localStorage.setItem('ff_rated_stars', String(stars));
+            paintStars(stars);
+            recordStatSilently('rate', stars);
+            showToast(`شكراً لتقييمك بـ ${stars} نجوم!`);
+        }
+
+        function paintStars(stars) {
+            const icons = document.querySelectorAll('#rating-stars i');
+            icons.forEach((icon, idx) => {
+                if (idx < stars) {
+                    icon.classList.remove('text-gray-600');
+                    icon.classList.add('text-ffGold');
+                }
+            });
+        }
+
+        // ============================================================
+        // إشعار Toast وتهيئة الصفحة
+        // ============================================================
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').textContent = msg;
             toast.classList.remove('opacity-0', 'translate-y-10');
-            
             setTimeout(() => {
                 toast.classList.add('opacity-0', 'translate-y-10');
             }, 3000);
         }
 
-        // تشغيل الدوال عند تحميل الصفحة
-        window.onload = function() {
-            initLockGateState();
-            loadProfile();
-            renderPhonesList(phonesDatabase);
+        window.addEventListener('DOMContentLoaded', () => {
+            checkGateOnLoad();
+
+            const savedProfile = localStorage.getItem('ff_player_profile');
+            if (savedProfile) {
+                try {
+                    applyProfile(JSON.parse(savedProfile));
+                } catch (_) {}
+            }
+
+            if (localStorage.getItem('ff_liked') === '1') paintLikeButton();
+            const savedStars = Number(localStorage.getItem('ff_rated_stars'));
+            if (savedStars >= 1 && savedStars <= 5) paintStars(savedStars);
+
             calculateSensitivity();
             renderWeapons('all');
-        };
+        });
     </script>
 </body>
 </html>
-```
